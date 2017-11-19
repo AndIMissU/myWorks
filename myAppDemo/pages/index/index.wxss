@@ -1,0 +1,68 @@
+.flex-row{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.flex-item {
+  line-height: 200rpx;
+  text-align: center;
+}
+.bc_green{
+  width: 200rpx;
+  height: 200rpx;
+  background-color: pink;
+}
+.bc_red {
+  width: 200rpx;
+  height: 200rpx;
+  background-color: darkseagreen;
+}
+.bc_blue{
+  width: 200rpx;
+  height: 200rpx;
+  background-color: paleturquoise;
+}
+
+
+
+/* page,.section {
+  height: 100%;
+}
+.flex-wrap {
+  display: flex;
+  flex-direction: column; */ 
+  /* space-between */
+  /* justify-content: flex-end; */  
+  /* justify-content: space-between;  中间space*/
+  /* justify-content: space-around;  上下都有间距 平均分布 */
+  /* align-items: flex-start;  靠左 */
+  /* align-items: center;
+  height: 100%; */
+  /* background-color: red; */
+/* }
+.flex-item {
+  width: 200rpx;
+  height: 200rpx;
+  text-align: center; */
+  /* fl */
+  /* line-height: 200rpx;
+  
+}
+.bc_green {
+  background-color: rgba(20,200,200,.9); */
+  /* flex: 2; */
+  /* align-self: flex-start; */
+  /* justify-self: flex-start;
+}
+.bc_red {
+  background-color: #f76160; */
+  /* align-self: center; */
+  /* justify-self: center; */
+  /* flex: 2; */
+/* }
+.bc_blue {
+  background-color: pink; */
+  /* align-self: flex-end; */
+  /* justify-self: flex-end; */
+  /* flex: 1; */
+/* } */

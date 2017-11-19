@@ -1,0 +1,24 @@
+<!--pages/list/list.wxml-->
+<!-- <text>{{friends[0]}}</text>
+<text>{{friends[1]}}</text>
+<text>{{friends[2]}}</text> -->
+<!-- <view>
+
+    <block wx:for="{{friends}}"
+           wx:for-index = "index"
+           wx:key = "" 
+           wx:for-item = "friend"
+           >
+        <view class="item">
+            {{index}}.{{friend}}
+        </view>
+    </block>
+</view> -->
+<view class="container">
+    <block wx:for = "{{arrList}}"
+    wx:key = "index">
+    <view class="item">
+        <text>{{item}}</text>
+    </view>
+    </block>
+</view>
