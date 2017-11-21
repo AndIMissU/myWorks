@@ -1,0 +1,6 @@
+@import "./styles/base.wxss";
+/* @import "./lib/wxParse/wxParse.wxss"; */
+.green {
+  color: #26b921;
+  background-color: #f8f8f8;
+}

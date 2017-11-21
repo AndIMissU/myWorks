@@ -1,0 +1,14 @@
+<scroll-view scroll-y="true" enable-back-to-top="true" class="root-wrap">
+    <view class="wrapper">
+        <view class="info">
+            <view class="info-title">
+                Quora精选:为什么聪明人总能保持冷静?
+            </view>
+            <view class="info-desc cf">
+                <text class="info-desc-author fl">哈利波特</text>
+                <text class="info-desc-author fr">2017/06/27</text>
+            </view>
+            <view class="info-line under-line">12121</view>
+        </view>
+    </view>
+</scroll-view>

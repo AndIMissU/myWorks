@@ -1,0 +1,22 @@
+/* .fl {
+    float: left;
+}
+.fr {
+    float: right;
+}
+.cf:after {
+    content: '';
+    display: block;
+    clear: both;
+} */
+.fl {
+    float:left;
+}
+.fr {
+    float: right;
+}
+.cf:after {
+    content:'';
+    display: block;
+    clear:both;
+}

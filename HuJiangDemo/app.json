@@ -1,0 +1,15 @@
+{
+  "pages": [
+
+    "pages/detail/detail",
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#4abb3b",
+    "navigationBarTitleText": "iKcamp英语学习",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f8f8f8"
+  }
+}
