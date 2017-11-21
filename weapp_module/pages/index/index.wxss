@@ -1,0 +1,21 @@
+.swiper-tab {
+  width: 100%;
+  height: 88rpx;
+  display: flex;
+  border-bottom: 1px solid gray;
+  text-align: center;
+  line-height: 88rpx;
+  flex-flow:row; 
+}
+.swiper-tab-item {
+  flex: 1;
+}
+.active {
+  color: #f65959;
+  border-bottom: 4px solid #f65959;
+}
+
+swiper {
+  margin-top: 10rpx;
+  text-align: center;
+}

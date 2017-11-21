@@ -1,0 +1,17 @@
+<view class="swiper-tab">
+  <view class="swiper-tab-item {{activeIndex==0?'active':''}}" data-current="0" bindtap="clickTab">全部</view>
+  <view class="swiper-tab-item {{activeIndex==1?'active':''}}" data-current="1"  bindtap="clickTab">提现中</view>
+  <view class="swiper-tab-item {{activeIndex==2?'active':''}}" data-current="2"  bindtap="clickTab">已提现</view>
+</view>
+
+<swiper current="{{activeIndex}}" bindchange="swiperTab" duration="400"> 
+  <swiper-item>
+    <view>全部</view>
+  </swiper-item>
+  <swiper-item>
+    <view>提现中</view>
+  </swiper-item>
+  <swiper-item>
+    <view>已提现</view>
+  </swiper-item>
+</swiper>
