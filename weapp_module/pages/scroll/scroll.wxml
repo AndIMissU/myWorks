@@ -1,0 +1,11 @@
+<!-- 实现铺满整个屏幕 -->
+<view wx:if="{{refreshing}}" class="refresh-block ">
+    <image animation="{{refreshAnimation}}" src="../../images/refresh.png" /> 
+</view>
+<scroll-view scroll-y="true" bindscrolltolower="lower" bindscrolltoupper="upper"
+style = "height:{{windowHeight}}px">
+    <!-- 指令  directive -->
+    <block wx:for="{{movies}}" wx:for-item="movie" wx:key="index">
+        <view class="item-style"> {{movie.title}} </view>
+    </block>
+</scroll-view>
