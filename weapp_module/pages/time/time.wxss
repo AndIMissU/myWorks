@@ -1,0 +1,12 @@
+
+.container {
+    height: 32rpx;
+    width: 100%;
+    background-color: pink;
+    color: white;
+}
+.hd_time{
+    margin-right: 0;
+    width:  100rpx;
+
+}

@@ -1,0 +1,6 @@
+
+<view class="container">
+    <view class="hd_time">
+        <view class="timer">跳过{{time}}</view>
+    </view>
+</view> 
