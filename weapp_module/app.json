@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/time/time",
     "pages/scroll/scroll",
     "pages/index/index",
     "pages/logs/logs"
