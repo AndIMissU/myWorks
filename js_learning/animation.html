@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .animation {
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+        margin: 100px auto;
+        animation: move 2s infinite alternate;
+        -webkit-animation: move 2s infinite alternate;
+    }
+    @keyframes move {
+        0% {
+            transform: translate(-100px, 0);
+        }
+        100% {
+            transform: translate(100px, 0);
+        }
+    }
+    .btn {
+        padding: 20px 50px;
+        background-color: pink;
+        color: white;
+        display: inline-block;
+    }
+    .stop:hover ~ .animation {
+        -webkit-animation-play-state: paused;
+        animation-play-state: paused;
+    }
+
+    </style>
+</head>
+<body>
+    <div class="btn stop">stop</div>
+    <div class="animation"></div>
+    <script>
+        // const btn = document.querySelector('.btn');
+        // const ani = document.querySelector('.animation');
+        // btn.addEventListener('mouseover',function(){
+        //     // alert('aa');
+        //     ani.style['animationPlayState'] = 'paused';
+        //     ani.style['webkitAnimationPlayState'] = 'paused';
+        // }) 
+        // btn.addEventListener('mouseout',function(){
+        //     ani.style['animationPlayState'] = 'running';
+        //     ani.style['webkitAnimationPlayState'] = 'running';
+        // })
+
+    </script>
+</body>
+</html>
