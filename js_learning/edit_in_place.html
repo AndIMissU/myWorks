@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>就地编辑</title>
+    <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+</head>
+<body>
+    <div id="doc">
+    </div>
+    <script>
+        /*
+        * 类 EditInPlace
+        * 功能: 用于就地编辑
+        * 参数1: id 页面的id 必填
+        * parent 将组件挂在在父元素上 必填
+        * value 默认值 选填 将会用到一个表单组件  组件会用到value
+        * url 选填  如果不填如url 则 在线保存  填入了则 数据库保存
+        */
+
+        function EditInPlace(o) {
+            this.id = o.id;
+            this.parentElement = o.parent;
+            this.value = o.value || 'default value';   // 选填
+            this.url = o.url || undefined;
+            this.key = o.key || null;
+            // console.log(this.value);
+            // 将组件加到页面上去
+            this.createElement();
+            this.attachEvents();
+        }
+        // 对象上有这个方法  在定义的时候 用 对象.prototype.方法名
+        EditInPlace.prototype.createElement = function () {
+            // DOM 节点
+            // this.contatinerElement 容器元素
+            // Dom Api C html, js
+            this.containerElement = document.createElement('div');
+            // 挂载节点
+            this.parentElement.appendChild(this.containerElement);
+            this.staticElement = document.createElement('span');
+            this.containerElement.appendChild(this.staticElement);
+            // 将value 传给this.staticElement
+            this.staticElement.innerText = this.value;
+
+            this.inputElement = document.createElement('input');
+            this.containerElement.appendChild(this.inputElement);
+            this.inputElement.value = this.value;
+            
+            // this.saveButton = document.createElement('button');
+            // this.saveButton.innerText = 'Save';
+            // this.saveButton.type = 'submit';
+            // this.containerElement.appendChild(this.saveButton);
+
+            this.saveButton = document.createElement('input');
+            this.saveButton.type = 'button';
+            this.saveButton.value = 'Save';
+            this.containerElement.appendChild(this.saveButton);
+
+
+            this.cancleButton = document.createElement('input');
+            this.cancleButton.type = 'button';
+            this.cancleButton.value = 'Cancle';
+            this.containerElement.appendChild(this.cancleButton);
+            
+            // 将当前的状态切换为文本状态
+            this.convertToText();
+            // this.convertToEdit();
+        }
+
+        EditInPlace.prototype.convertToText = function() {
+            this.inputElement.style.display = 'none';
+            this.saveButton.style.display = 'none';
+            this.cancleButton.style.display = 'none';
+            this.staticElement.style.display = 'inline';
+        }
+        EditInPlace.prototype.convertToEdit = function () {
+            this.inputElement.style.display = 'inline';
+            this.saveButton.style.display = 'inline';
+            this.cancleButton.style.display = 'inline';
+            this.staticElement.style.display = 'none';
+        }
+
+        EditInPlace.prototype.attachEvents = function () {
+            var that = this;
+            // this是每个函数都有的 由函数被调用的方式决定
+            // this.convertToEdit() 函数作为对象的方法调用  函数内部的this 指向对象
+            // 事件回调函数 是作为普通函数被调用  这个this指向window
+            this.staticElement.addEventListener('click', ()=> {
+                this.convertToEdit();
+            });
+            this.cancleButton.addEventListener('click',() => { 
+                // 不能简单的切换文字  万一改了文字 就不一样了
+                var strVal = this.inputElement.value;
+                if (strVal !== this.value) {
+                    if (confirm('您确定要放弃此次修改吗？')) {
+                        this.convertToText();
+                    }
+                    return ;
+                }
+                this.convertToText();
+            });
+            that.saveButton.addEventListener('click',function() {
+                // 跟后端同步数据  ajax
+                // 违背了封装  抽象
+                // 业务就耦合了   需要将具象拿掉  这个具象就是 url 和 key
+                var strVal = that.inputElement.value;
+                if(!that.url){
+                    that.staticElement.innerText = strVal;
+                    that.convertToText();
+                    return ;
+                }
+                $.getJSON(
+                    that.url,
+                    {[that.key]: strVal},
+                    function (data) {
+                        that.staticElement.innerText = strVal;
+                        that.convertToText();
+                    }
+                )
+            });
+
+        }
+        // 学会封装和私有化
+        var title_url = 'http://www.easy-mock.com/mock/5a09867f28b23066479b8365/ajaxData/getUserInfo';
+        var title_key = 'title';
+        var titleClassical = new EditInPlace({
+            id: 'titleClassical',
+            parent: document.getElementById('doc'),
+            value: 'Title here',
+            // url: title_url,
+            // key: title_key
+        });
+        // var titleClassical = new EditInPlace('titleClassical', document.getElementById('doc'), 'Title here',title_url,title_key);
+        // var nameClassical = new EditInPlace('nameClassical', document.getElementById('doc'), '未命名');
+        // var adressClassical = new EditInPlace('adressClassical', document.getElementById('doc'), '新建区');
+    </script>
+</body>
+</html>
