@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>type 判断</title>
+</head>
+<body>
+    <script>
+        // var type = function(obj) {
+        //     var t = Object.prototype.toString.call(obj);
+        //     switch(t){
+        //         case '[object Array]':return "Array"; break;
+        //         case '[object Function]' :return "Function"; break;
+        //         case '[object Number]':return "Number";break;
+        //         case '[object Undefined]':return "Undefined";break;
+        //         case '[object Boolean]':return "Boolean";break;
+        //         case '[object String]':return "String";break;
+        //     }
+        // }
+        var obj = {"name":"徐玲"};
+        // Object是obj的原型对象 
+        var arr = ['1','2'];
+        var abc = "abcs"
+        var func = function() {};
+        console.log(obj.toString());
+        console.log(arr.toString());
+        console.log(func.toString());
+        var num = 123;
+        // console.log(type(arr));
+        // 参数  obj:any
+        // var isArray = function(obj) {
+        //     return Object.prototype.toString.call(obj) === '[object Array]';
+        // }
+        // var isFunction = function(obj) {
+        //     return Object.prototype.toString.call(obj) === '[object Function]';
+        // }
+        // var isString = function(obj) {
+        //     return Object.prototype.toString.call(obj) === '[object String]';
+        // }
+        // var isNumber = function(obj) {
+        //     return Object.prototype.toString.call(obj) === '[object Number]';
+        // }
+        // var isUnderfined = function(obj) {
+        //     return Object.prototype.toString.call(obj) === '[object Underfined]';
+        // }
+        // var isBoolean = function(obj) {
+        //     return Object.prototype.toString.call(obj) === '[object Boolean]';
+        // }
+        // console.log(isArray(abc));
+
+        // function Type(obj) {
+        //     var typeStr = typeof(obj),
+        //     toStr = Object.prototype.toString,
+        //     objStr = {
+        //         "[object Object]" : "_objectObject_",
+        //         "[object Array]" : "_arrayObject_",
+        //         "[object Number]" : "_numberObject_",
+        //         "[object Boolean]" : "_booleanObject_",
+        //         "[object String]" : "_stringObject_"
+        //         }
+        //     if(obj === null){
+        //         return null;
+        //     } else if(typeStr === "function"){
+        //         return "function";
+        //     }
+        //     if(typeStr !== "object"){
+        //         return typeStr;
+        //     } else{
+        //         return objStr[toStr.call(obj)];
+        //     }
+        // }
+        // console.log(Type(arr));
+        // var Type =  {
+        //     isArray : function(obj) {
+        //         return Object.prototype.toString.call(obj) === '[object Array]';
+        //     },
+        //     isFunction : function(obj) {
+        //         return Object.prototype.toString.call(obj) === '[object Function]';
+        //     },
+        //     isString : function(obj) {
+        //         return Object.prototype.toString.call(obj) === '[object String]';
+        //     },
+        //     isNumber : function(obj) {
+        //         return Object.prototype.toString.call(obj) === '[object Number]';
+        //     },
+        //     isUnderfined : function(obj) {
+        //         return Object.prototype.toString.call(obj) === '[object Underfined]';
+        //     },
+        //     isBoolean : function(obj) {
+        //         return Object.prototype.toString.call(obj) === '[object Boolean]';
+        //     },
+        //     isObject : function(obj) {
+        //         return obj.toString === '[object Object]';
+        //     }
+        // }
+        // console.log(Type.isArray(arr));
+        // var key = "Array";
+        // console.log(Type["is"+key]==arr);
+        // let  块及作用域
+        var Type = {};
+        for(let i = 0,type; type=['String','Array','Number','Function','Boolean'][i++];) {
+            // console.log(i, type);
+            //异步
+            Type['is'+type] = function(obj) {
+                return Object.prototype.toString.call(obj) === '[object '+type+']';
+            }
+        }
+        console.log(Type.isString(abc));
+    </script>
+    
+</body>
+</html>
