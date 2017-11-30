@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const user = '🐷';
+        // user = '🐱';
+        const arr = [1,2];
+        arr.push(3);
+        // 自执行函数
+        // 函数作用域
+        // 外界无法访问里面
+        var User =(function(){
+            var UPPER_BOUND = 100;
+            var zhu = function() {
+            }
+            zhu.getUPPER_BOUND = function() {
+                return UPPER_BOUND;
+            }
+            return zhu;
+            
+        })();
+        console.log(User.getUPPER_BOUND());
+    </script>
+</body>
+</html>
