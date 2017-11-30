@@ -1,14 +1,16 @@
 {
   "pages": [
+    "pages/storage_pre/storage_pre",
+    "pages/storage/storage",
     "pages/time/time",
     "pages/scroll/scroll",
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs" 
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "🐷",
     "navigationBarTextStyle": "black"
   }
 }
