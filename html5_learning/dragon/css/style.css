@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+*, *:before,*:after{
+    box-sizing: border-box;
+}
+body, html {
+    height: 100vh;
+    min-width: 10rem;
+    background: 0 0 ;
+}
+body {
+    min-height: 100%;
+    background: url(http://gw.alicdn.com/mt/TB1.sknLXXXXXbEXpXXXXXXXXXX-750-1333.png) no-repeat;
+    background-size: cover;
+}
+.dragon-poplayer, .dragon-section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+}
+.dragon-poplayer {
+    background-color: rgba(255, 255, 255, .4);
+}
+.dragon-ready-play {
+    z-index: 100;
+}
+.dragon-play{
+    height: 10.946667rem;
+    background: url(//gw.alicdn.com/mt/TB13eupLpXXXXaGXXXXXXXXXXXX-750-821.png) center no-repeat;
+    background-size: 10rem 10.946667rem;
+}
+.dragon-play .music {
+    position: absolute;
+    width: 1.86667rem;
+    height: 0.533333rem;
+    top: 3.6rem;
+    left: 4.26667rem;
+    z-index: 12;
+}
+.dragon-play .music label {
+    font-size: 0;
+    white-space: nowrap;
+    display: block;
+    position: absolute;
+    top: -.026667rem;
+    left: 0;
+    width: 100%;
+    height: 0.533333rem;
+}
+.dragon-play .music label:before {
+    content: "";
+    display: inline-block;
+    width: 0.626667rem;
+    height: 0.533333rem;
+    /* 用label做checkbox效果  因为checkbox做样式的空间很小*/
+    /* base64格式 */
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAAAoCAMAAABZ/FMmAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAABgUExURUxpcX9/AP+2SIhTKIhRKIhSKYhRKP//AP9/f4hRKIpRKn8/P4lRKIlRKIlRJ4hSKYlRKH9MM4lRKIhRKZ9fH4pRKf/ht4lSKfzetJJcM9awhvnasNexh9avhdq0itmyidro4WkAAAAWdFJOUwACAz7W+GsBAr1tBPm3cfLbCvPYCD8S4xaNAAAAvklEQVQ4y+2Uyw6CMBBF2wpMi4hPOgVR//8vnYULU28TZ9EdN4GQcBpOG+Yas2XLd4jo8/AnLjfbhZaztKGziJdrahim2cEv2AIuC/ZIqGOelxSzpGVm7pH/gfkRQVbmgISOzHfEJ9k04kU0wsgL5KPiZYGOV/qoeaWPdr+k9lf6eB3vqe55kqnrQ97X/t8umnkh52QeX4h/onl0zo943leZ9/H3fIy5XUt9cjrDAir21VQoRenDIYeH0IO2egP0nUKfYmiKBAAAAABJRU5ErkJggg==)no-repeat;
+    background-size: .626667rem .533333rem;
+}
+.dragon-play .music input[type=checkbox] ,.dragon-playing {
+    opacity: 0;
+}
+.dragon-play .music input[type=checkbox]:checked + label:before {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAAAoCAMAAABZ/FMmAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAABgUExURUxpcYlRKIhSKIhRKIdXJ4lSKIlRKNaVKYlRKIdRKIpTKIlRJ4lRKIhRKIlRKYlRKP/ht4lSKY5YL7GCWfnZr9myiZNdNP3etJpnPeG8kvLRp4tVK7yQZ8abcqd2TM+nfUXeU6QAAAAQdFJOUwDSVfkIQrwBbRMcNvLdpo3GTOUuAAABk0lEQVQ4y7WV25aCMAxFC7YEimjDHUX9/7+cFGSgNXV1HiYPLC075SThFCH+LQohBcTjCihBxtK6oP1TGa8FAHIdyYOQBehUR6ovSEtZ5rG1agm6VFl8Z2RaquQP+EVdL5GFgpb6XFW5swZbFz4rVVAiYnq4t9CQZyf04pTlaQo5/boUTm9p1AmyUSmLo9dJgABOz7CXTHo4bdJ3g3Fiapu5XnISvwUiQ+xc2rzGZpo53MYZsXXxB+LULDjXeFp26Buh84ojMxKf7wgdnxjgKcHlu5H+9xjkiyst33Z87+a48L5HlpE006Z9x+vW8qUvZx1W3/o49Ywu6sMNZ3vvjo3Fh3rHZ2M4/StP3Iv4A27z2XrThb/ThEzj4hPff1twTQn941CrFWfC87rbBBcP6VneB3rAQfs2DnZ/Afiu+De2YYT1PI8uGc1X3u7fNgxuvr1v85vuX+Y7//bL8Oj75/icD84ZyMCcntWPw40s7PiMXtWM4zm/U35HJsiZfgpZhc6Tiv1AQOi8SlToXOXPQ+ZE/QHaEDhILKP/igAAAABJRU5ErkJggg==);
+}
+
+.dragon-ready-play.is-animationed {
+    -webkit-animation: fadeOut 1.5s ease-in both;
+    animation: fadeOut 1.5s ease-in both;
+}
+@-webkit-keyframes fadeOut {
+    from{ opacity: 1; }
+    to { opacity: 0; }
+}
+@keyframes fadeOut {
+    from{ opacity: 1; }
+    to { opacity: 0; }
+}
