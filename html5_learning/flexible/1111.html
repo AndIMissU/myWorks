@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, height=device-height, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>双十一 flexsible</title>
+    <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+    <script src="https://cdn.bootcss.com/zepto/1.0rc1/zepto.min.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html{
+            outline: none;
+            color: #000000;
+            background: #ffffff;
+            font-family: sans-serif;
+            font-size: 0;
+        }
+        
+        html * {
+            /* outline: 0; */
+            -webkit-tap-highlight-color: red;
+        }
+    
+
+        .item-section{
+            min-height: 100%;
+            background-color: #ee0a3b;
+            position: relative;
+            font-size: 12px;
+        }
+        .item-section-header{
+            text-align: center;
+            
+        }
+        .item-section-header img{
+            width: 10rem;
+            height: 6.41333rem;
+        }
+        .item-section ul{
+            padding: .133333rem /* 10/75 */;
+
+            
+        }
+        .flag{
+            display: table;
+            width: 100%;
+            height: 2.8rem /* 210/75 */;
+            background-color: white;
+
+        }
+        .flag .flag-item.figure{
+            width: 2.346667rem /* 176/75 */;
+            height: 2.346667rem;
+
+        }
+        .flag .flag-item{
+            display: table-cell;
+            padding: 0.16rem 0;
+            background-color: #fff;
+            vertical-align: top;
+
+        }
+        .figcaption.flag-item{
+            width: 6.92rem /* 519/75 */ /* 529/75 */;
+            height: 2.346667rem /* 176/75 */ /* 176/75 */;
+            padding-left:.213333rem /* 16/75 */ /* 16/75 */;
+            padding-right: .253333rem /* 19/75 */;
+            position: relative;
+            background-color: wheat;
+        }
+        .figure img{
+            width: 2.346667rem /* 176/75 */;
+            height: 2.346667rem ;
+        }
+        .flag-title{
+            position: absolute;
+            margin-top:0 /* 20/75 */;
+            font-size: 0.35rem;
+            color: white;
+        }
+        .flag-price{
+            position: absolute;
+            margin-top:1rem /* 30/75 */ /* 20/75 */;
+            font-size: 0.4rem;
+            color: white;
+        }
+        .flag-type{
+            position: absolute;
+            margin-top: 1.5rem;
+            font-size: 0.3rem;
+        }
+        .flag-btn{
+            width: 2.2rem;
+            height: 0.7rem;
+            position: absolute;
+            margin-top: 1.8rem;
+            margin-left: 4.5rem;
+            font-size: 0.4rem;
+            background-color: red;
+            text-align: center;
+            color: white;
+            line-height: 0.7rem;
+            
+        }
+        /* input{
+            width: 8rem;
+            display: inline-block;
+            border: 1px solid red;  
+            outline:  1px solid blue;
+            border: none;
+            
+        }
+        .btn{
+            width: 2rem;
+            display: inline-block;
+            background-color: red;
+        }
+        .serch-box{
+            font-size: 0;
+        }
+        .serch-box .btn{
+            font-size: 12px;
+        } */
+    </style>
+</head>
+<body>
+    <!-- 开发时用iphone8 375pt 750像素手机
+    414 iphone8 plus 
+    320 iphone5
+    android 375-480之间 -->
+    <!-- <div class="serch-box">
+        <input type="text">
+        <a class="btn">搜索</a>
+    </div>
+    <input type="text">
+    <br>
+    <br>
+    <br> -->
+
+        <div class="html_content">
+            <div class="item-section">
+                <div class="item-section-header">
+                    <h2>
+                        <img src="http://gw.alicdn.com/mt/TB1PNLZKXXXXXaTXXXXXXXXXXXX-750-481.jpg"
+                         alt="">
+                    </h2>
+                </div>
+                <ul>
+                    <li class="flag">
+                        <a href="#" class="figure flag-item">
+                            <img src="https://placeimg.com/350/350/people/grayscale"
+                             alt="">
+                        </a>
+                        <div class="figcaption flag-item">
+                            <div class="flag-title">
+                                <a href="#">Carter's1年式灰色长袖连体衣包脚爬服全棉鲸鱼男婴儿童装115G093
+                                    </a>
+                            </div>
+                            <div class="flag-price">
+                                <!-- span行内  small SEO -->
+                                <span>双11价</span>
+                                <span>¥299.06</span>
+                                <small>(满400减100)</small>
+                            </div>
+                            <div class="flag-type">
+                                一小时卖5885件
+                            </div>
+                            <a href="#" class="flag-btn">马上抢!</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+</body>
+</html>
