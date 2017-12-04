@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BFC1</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        *, *:before, *:after {
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+        }
+
+        .box p {
+            margin: 10px 0;
+            background-color: red;
+        }
+
+        /* .box p:nth-child(1) {
+            margin-bottom: 20px;
+        } */
+    </style>
+</head>
+<body>
+    <h1>BFC原理</h1>
+    <p>
+        相邻元素间的margin或重叠,如何解决重叠的问题?
+        创建一个bfc block format context
+        overflow:hidden
+        块级元素格式化上下文
+        在BFC的垂直方向上，边距不会再次重叠
+    </p>
+    <div class="box" id="box">
+        <p>Lorem ipsum dolor sit.</p>
+        <div style="overflow:hidden;"><p>Lorem ipsum dolor sit.</p></div>
+        
+        <p>Lorem ipsum dolor sit.</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BFC2</title>
+    <style>
+        .one {
+            /* height: 100px; */
+            /* 文档流将 里面的文字 标签将父元素撑起来 */
+            background-color: pink;
+            /* BFC 块级元素创建上下文 float 不为none position 不为static display inline-block overflow值不为visible
+            原理第二条 计算BFC元素高度的时候，浮动元素也会参与计算 */
+            overflow: hidden;
+        }
+
+        .two {
+            float: left;
+        }
+
+        /* .one:after {
+            content: '';
+            display: block;
+            clear: both;
+        } */
+
+        /* .cf:after {
+            content: '';
+            display: block;
+            clear: both;
+        } */
+    </style>
+</head>
+<body>
+    <!-- 文档流 从上到下， float position：absolute -->
+    <div class="one cf">
+        <div class="two">hello word</div>
+    </div>
+    你好世界！
+</body>
+</html>
