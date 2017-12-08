@@ -18,14 +18,12 @@ Page({
        */
       // 页面加载完成
       onLoad: function (options) {
-        console.log('onLoad');
       },
     
       /**
        * 生命周期函数--监听页面初次渲染完成
        */
       onReady: function () {
-        console.log('onReady');
       },
     
       /**
@@ -40,8 +38,7 @@ Page({
                     that.setData({
                         address: res.data
                     });
-                }
-                
+                }   
             }
         })
         
