@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>单例实现登录弹窗</title>
+    <style>
+        .login-layer {
+            width: 200px;
+            height: 200px;
+            background: rgba(0, 0, 0, .6);
+            text-align: center;
+            line-height: 200px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <button id="loginBtn">登陆</button>
+    <script>
+        const btn = document.getElementById('loginBtn');
+
+        // btn.addEventListener('click', function() {
+        //     // 变量的提声
+        //     loginLayer.style.display = 'inline-block';
+        // },false);
+        // // 立即执行函数 ()()
+        // // 使用static 将new 限制为一次  函数只能运行一次用立即执行函数 立即执行函数经常用于闭包
+        // // js 是一种 class free 就是 无类的语言，只有对象
+        // var loginLayer = (function() {
+        //     var div = document.createElement('div');
+        //     div.classList.add('login-layer');
+        //     div.innerHTML = "我是登陆弹窗";
+        //     div.style.display = "none";
+        //     document.body.appendChild(div);
+        //     return div;
+        // })();
+        // console.log(loginLayer);
+
+        // 立即执行函数的缺点：执行是需要消耗资源  
+        // 有时候 这种单例能够推迟就好了  希望它推迟到点击按钮的那一刻
+
+        btn.addEventListener('click', function() {
+            // 变量的提声
+            // loginLayer
+            loginLayer.getInstance().show();
+        },false);
+        class loginLayer {
+            constructor() {
+                this.div = null;
+                this.instance = null;
+                this.init();
+            }
+            static getInstance() {
+                if(!this.instance) {
+                    this.instance = new loginLayer();
+                }
+                return this.instance;
+            }
+            init() {
+                this.div = document.createElement('div');
+                this.div.classList.add('login-layer');
+                this.div.innerHTML = "我是登陆弹窗";
+                this.div.style.display = "none";
+                document.body.appendChild(this.div);
+            }
+            show() {
+                this.div.style.display = "block";
+            }
+        }
+        console.log(loginLayer);
+    </script>
+</body>
+</html>

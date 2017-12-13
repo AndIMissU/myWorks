@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>马云广发英雄贴</title>
+    <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+    <style>
+        * {
+            /* 防止用户长按的 复制 粘贴 */
+            -webkit-user-select: none;
+            user-select: none;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, Microsoft Yahei, sans-serif;
+        }
+        body, html {
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+            background: #000000;
+        }
+        #app, .full-page {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            overflow: hidden;
+        }
+        /* 每屏的业务样式 */
+        .warm-up {
+            background: #000000;
+        }
+        .user-input {
+            background: lightblue;
+        }
+        .warm-up  .poster-container .poster-left{
+            position: absolute;
+            left: -3.133333rem;
+            top: 2.413333rem;
+            width: 5.413333rem;
+            height: 15.737333rem;
+            /* background: plum; */
+            background-image: url('https://gw.alicdn.com/tfs/TB1.XAFbRfH8KJjy1XbXXbLdXXa-406-1153.png');
+            background-size: 100% 100%;
+            background-position: 50%;
+            transition: all 1.75s ease-out;
+            opacity: 0;
+        }
+        .warm-up .poster-container .poster-left.end {
+            -webkit-transform: translateX(3.133333rem);
+            transform: translateX(3.13333rem);
+            opacity: 1;
+        }
+        .warm-up  .poster-container .poster-right {
+            position: absolute;
+            left: 8rem;
+            opacity: 0;
+            top: 2.826667rem;
+            width: 4.986667rem;
+            height: 14.96rem;
+            transition: all 1.75s ease-out;
+            background-image: url('https://gw.alicdn.com/tfs/TB18XAFbRfH8KJjy1XbXXbLdXXa-374-1122.png');
+            background-size: 100% 100%;
+            background-position: 50%;
+        }
+        .warm-up  .poster-container .poster-right.end {
+            -webkit-transform: translateX(-2.56rem);
+            transform: translateX(-2.56rem);
+            opacity: 1;
+        }
+        .poster-text {
+            position: absolute;
+            left: .24rem;
+            bottom: -.346667rem;
+            width: 9.306667rem;
+            height: 5.92rem;
+            transition: all 1s ease-out 1.25s;
+            background-image: url('https://gw.alicdn.com/tfs/TB1cbd9cr_I8KJjy1XaXXbsxpXa-688-438.png');
+            background-size: 100% 100%;
+            background-position: 50%;
+            opacity: 0;
+        }
+        .poster-text.end {
+            opacity: 1;
+            -webkit-transform: translateY(-.773333rem);
+            transform: translateY(-.773333rem);
+        }
+    </style>
+</head>
+<body>
+    <!-- kungfu web app -->
+    <div id="app">
+        <!-- 一般一个web app会有很多屏，然后这些屏就需要跳转 有可能是滑屏 也有可能是点击按钮 -->
+        <!-- full-page 占满整个一屏 -->
+        <div class="full-page">
+            <!-- 每一屏 -->
+            <div class="warm-up full-page">
+                <div class="poster-container full-page">
+                    <div class="poster-bg full-page">
+                        <div class="poster-left"></div>
+                        <div class="poster-right"></div>
+                        <div class="poster-logo"></div>
+                        <div class="poster-mayun"></div>
+                    </div>
+                    <!-- z-index 因为高度是不可控的，所以有position fixed 和 bottom 0 盖在上面 -->
+                    <div class="poster-text"></div>
+                </div>
+            </div>
+            <!-- <div class="user-input full-page" style="transform:translateY(-50%);"></div> -->
+        </div>
+    </div>
+    <script>
+        const oPostLeft = document.querySelector('.poster-left');
+        const oPostRight = document.querySelector('.poster-right');
+        const oPostText = document.querySelector('.poster-text');
+        window.onload = function() {
+            setTimeout(() => {
+                oPostLeft.classList.add('end');
+                oPostRight.classList.add('end');
+                oPostText.classList.add('end');
+            }, 500);
+        }
+    </script>
+</body>
+</html>
