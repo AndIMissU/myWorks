@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQuery</title>
+    <style>
+        html, img, div, li, il, span, em, a, i {
+            -webkit-filter: grayscale(100%);
+            filter: grayscale(100%);
+        }
+    </style>
+</head>
+<body>
+        <img src="http://29e5534ea20a8.cdn.sohucs.com/c_zoom,h_213/c_cut,x_0,y_6,w_600,h_400/os/news/2e24b762ab51921380044aec6a6def6d.jpg" />
+    <ul class="news-list">
+
+    </ul>
+
+
+    <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.js"></script>
+    <script>
+        // window.onload  这个时间来监听事件 不是最佳时机  这个已经慢了  因为会有那个dom ready 事件
+        // $ 可以作为css的queryselector 
+        // $ 也可以传入函数  dom ready
+        // $ 
+        // dom ready 事件有兼容性问题  Jquery就是可以解决兼容性的
+        $(function() {
+            // 这里会监听 dom ready事件
+
+            // dom 渲染的过程
+
+            // 页面是从上到下来 渲染dom 树
+            // css  显示到节点
+            // node 分为css 节点 和文本节点
+            // 从上到下下载 
+            // 为什么css 放在head 里面
+            // 因为css会有一个herf属性  这个就需要请求http
+            // css的link标签可能会阻塞 html的下载  所以 看到的页面 不会没有样式  所以 css的link应该放在head上面
+            // 而且 link标签不会阻塞 script标签的下载
+            // script 会完全阻塞 body内容下载 所以script应该放在 body后面
+            // 在页面加载时   dom ready 事件 >window onscroll > window onload(表示content 已经 load)   (前者先于后者)
+            // 这里的 资源指的是  图片资源 静态资源  flash资源
+            
+            const news = [{
+                url: 'https://www.baidu.com',
+                title: '江歌案'
+            }, {
+                url:'https://sohu.com',
+                title:'三胖白头山'
+            }];
+
+            news.map(item => {
+                // 这个返回的是一个 DOM node 而且时封装好的
+                // $li = $(`<li>${item.title}</li>`);
+                let $li = $('<li/>');
+                $li.html(item.title);
+                // 闭包
+                $li.click(() => {
+                    location.href = item.url;
+                });
+                $li.appendTo($('.news-list'));
+                
+            });
+            
+        });
+    </script>
+</body>
+</html>
