@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>弹幕</title>
+    <style>
+        .dm{width:100%;height:100%;border:1px solid #000}
+        .dm .d_screen .d_mask{width:100%;height:380px;background:#000;opacity:0.5;
+        filter:alpha(opacity=50); z-index:1;}
+        .s_txt {
+            width:388px;
+            height: 34px;
+            border-radius: 3px;
+            border: 1px solid rgb(204, 204, 204);
+            padding-left: 10px;
+        }
+        .dm .d_screen .d_show div{font-size:22px;line-height:36px;font-weight:500;color:#fff;position:absolute;left:0;top:0;}
+        .s_sub {
+            border: 1px solid rgb(230, 80, 30);color:rgb(230, 80, 30);
+            border-radius: 3px;
+            text-align: center;
+            padding: 0;
+            height: 35px;
+            line-height: 35px;
+            font-size: 14px;
+            width:159px;
+            background-color:white;
+        }
+        .s_del {
+            border: 1px solid rgb(176, 168, 165);color:rgb(176, 168, 165);
+            border-radius: 3px;
+            text-align: center;
+            padding: 0;
+            height: 35px;
+            line-height: 35px;
+            font-size: 14px;
+            width:159px;
+            background-color:white;
+        }
+        .d_screen {border: 1px solid rgb(229, 229, 229);}
+    </style>
+</head>
+<body>
+    <!-- websocket  是一个实时推送
+    http 野狗专门做实时通信 -->
+    <!-- client 和 server 之间 不再是 http（渲染和显示页面） 
+    web socket 接管页面  可以保持服务器端和页面之间的联系 不会断开
+    发一条信息给 > 服务器端 > 然后 服务器端广播给所有人 -->
+    <div id="container">
+            <div id="main-container">
+            <main id="main" style="margin-left:5px">
+              <div style="text-align:center;margin-top:10px">
+                <div class="dm" style="border:0">
+                          <div class="d_screen">
+                              <div class="d_mask" style="background:#fff"></div>
+                              <div class="d_show">
+                                  <!-- <div>text message</div> -->
+                              </div>
+                          </div>
+                          <div class="send">
+                              <div class="s_fiter">
+                                  <div class="s_con">
+                                      <p><input placeholder="说点什么?" class="s_txt" type="text"/> </p><p>
+                                      <input type="button" value="发 射" class="s_sub"/>
+                                      <input type="button" value="清 屏" class="s_del"  /> </p>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+            </div>
+          </main>
+        </div>  
+      </div>
+    <script src = "https://cdn.wilddog.com/sdk/js/2.0.0/wilddog-auth.js"></script>
+    <script src = "https://cdn.wilddog.com/sdk/js/2.0.0/wilddog-sync.js"></script>
+    <script src="https://cdn.wilddog.com/js/vendor/jquery-1.11.2.min.js"></script>
+    <script>
+        $(function() {
+            // 云存储服务  不用后端 照样存数据  的sdk
+            var config =  {
+                authDomain: 'wd5964340376rahlqo.wilddog.com',
+                syncURL: 'https://wd5964340376rahlqo.wilddogio.com'
+            };
+
+            wilddog.initializeApp(config);
+            var ref = wilddog.sync().ref();
+            $('.s_sub').click(() => {
+                let text = $.trim($('.s_txt').val());
+                // alert(text);
+                // 在我们的野狗上面 下面的数据都叫子节点
+                ref.child('message').push(text);
+                $('.s_txt').val('');
+            });
+            $('.s_txt').keypress((event) => {
+                if (event.keyCode == '13') {
+                    // dry dont repeat yourself
+                    // trigger 触发事件执行  相当于有一个钩子  然后将函数拿出来执行
+                    $('.s_sub').trigger('click');
+                }
+            });
+
+            ref.child('message').on('child_added', function(snapshot) {
+                let text = snapshot.val();
+                let textObj = $("<div class='dm_message'></div>");
+                textObj.text(text);
+                $('.d_show').append(textObj);
+                moveObj(textObj);
+            });
+            // 离父元素的偏移量
+            let topMin = $('.d_mask').offset().top;
+            let topMax = topMin + $('.d_mask').height();
+            let _top = topMin;
+
+            function moveObj(ele) {
+                //节点的宽度 
+                let _left = $('.d_mask').width() - ele.width();
+                _top = _top + parseInt(Math.random()*300);
+                if(_top > topMax - 50) {
+                    _top = topMin;
+                }
+                ele.css({
+                    color: "pink",
+                    left: _left,
+                    top: _top
+                });
+                let time = 20000 + 10000 * Math.random();
+                ele.animate({
+                    left: "-" + _left + "px"
+                },time, function() {
+                    ele.remove();
+                });
+            }
+
+        })
+    </script>
+</body>
+</html>
