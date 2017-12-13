@@ -1,0 +1,8 @@
+body {
+  font-size: 12px;
+}
+
+.header {
+  height: 44px;
+  transition: background-color 0.2s, height 1s;
+}
