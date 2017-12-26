@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // ecDO 是作者lib的名字
+        let ecDO = {
+            browserInfo(type) {
+                console.log(navigator.userAgent);
+                // BOM  访问网页的设备的信息
+                // console.log(navigator.userAgent);
+                switch (type) {
+                    case 'android': return navigator.userAgent.toLowerCase().indexOf('android') !== -1; break;
+                    case 'iphone': return navigator.userAgent.toLowerCase().indexOf('iphone') !== -1; break;
+                    case 'ipad': return navigator.userAgent.toLowerCase().indexOf('ipad') !== -1; break;
+                    case 'wechat': return navigator.userAgent.toLowerCase().indexOf('micromessenger') !== -1; break;
+                    default: return navigator.userAgent; break;
+                }
+            },
+            // 常用功能： 将url解析成为一个对象
+            // query string -> query obj
+            // http://localhost:3000/ecdo.html?a=1&b=3?
+            getUrlPrmt(url) {
+
+            }
+        }
+        if(ecDO.browserInfo('android')) {
+            // alert('您使用的是安卓手机');
+        } else if (ecDO.browserInfo('iphone')){
+            // alert ('您使用的是iphone手机');
+        } else if (ecDO.browserInfo('ipad')) {
+            // alert ('您使用的是ipad');
+        } else if (ecDO.browserInfo('wechat')) {
+            alert('您使用微信打开');
+        }
+        // h5页面  在微信生态和微信环境下有较大区别  微信当中可以得到微信授权
+    </script>
+</body>
+</html>

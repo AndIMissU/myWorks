@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Symbol--js新增数据类型</title>
+</head>
+<body>
+    <script>
+        // let wxb = {
+        //     bestLove: '双儿',
+        //     bestLove: '曾柔',
+        //     bestLove: '建宁公主'
+        // };
+        // 标识
+        let shuanger = Symbol();
+        let ake = Symbol();
+        let sq = Symbol('苏荃');
+        let mjp = Symbol();
+        let jn = Symbol('建宁公主');
+        let zr = Symbol('曾柔');
+
+        let wxb = {
+            name: '韦小宝',
+            [shuanger]: '最爱',
+            [ake]: '最爱',
+            [sq]: '最爱',
+            [jn]: '最爱'
+        }
+        // console.log(wxb);
+        // console.log(wxb[shuanger]);
+        // console.log(wxb[jn]);
+        // for(key in wxb) {
+            // console.log(`${key}:${wxb[key]}`);
+        // }
+        let name = Symbol('name');
+        let age = Symbol('age');
+        let obj = {
+            [name]: '分分',
+            [age]: 18
+        }
+        // js动态性  无法得到保证
+        // 如果这个东西是字符串类型的  key是不可能的 永远都可以被修改
+        // 将 json里面正常的key(string)
+        // 今天将新的Symbol变量构成新的key 以便于区分开和处理
+        const symbols = Object.getOwnPropertySymbols(obj);
+        // console.log(symbols);
+        obj[name] = '严律己';
+        for (symbol of symbols) {
+            // console.log(obj[symbol]);
+        }
+        // console.log(obj);
+        let f = [1,2,3];
+        // console.log(typeof f);
+        // console.log(Object.prototype.toString.call(f));
+        
+        // json
+        //唯一性
+        // 利用symbol修改array.prototype toStringTag 这个的属性 
+        Array.prototype[Symbol.toStringTag] = 'array';
+        // console.log(Object.prototype.toString.call(f));
+        var obj1 = {
+            a: 1,
+            b: 2
+        }
+        // console.log(Object.getOwnPropertyNames(obj1));
+        var obj2 = Object.create(obj1, {
+            // 在es6 里面 内置了get 和set方法
+            getFoo: {
+                value: function() {
+                    return this.foo + ' getter';
+                }
+            }
+        });
+        obj2.foo = 3;
+        // console.log(obj2);
+        // console.log(Object.getOwnPropertyNames(obj2));
+
+        class Num {
+            constructor(num) {
+                // 变量名前面加了下划线表示的是 私有的
+                // 这是语法习惯的约束 没有起到private约束 
+                // 毕竟private 是提供给对象内部使用的 所以需要暴露api 才能让外界可以被访问到
+                this._num = num;
+            }
+            get num() {
+                console.log('又一个用户来访问num啦');
+                return this._num;
+            }
+            set num(num) {
+                console.log('又要更改num数据啦')
+                this._num = num;
+            }
+        }
+        const test = new Num(9);
+        test.num = 11;
+        console.log(test.num);
+    </script>
+</body>
+</html>
