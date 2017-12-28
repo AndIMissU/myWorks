@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cookie</title>
+</head>
+<body>
+    <script>
+        function getCookie(name) {
+            var arr, reg = new RegExp("(^|)"+ name+ "=([^;]*)(;|$)");
+            if ( arr = document.cookie.match(reg)) {
+                return unescape(arr[2]);
+            } else {
+                return null;
+            }
+        }
+        // 存储的时候加密 拿出来的时候解密 
+        // escape 加密函数
+        function setCookie(name, value, expiredays) {
+            var exdate = new Date();
+            exdate.setDate(exdate.getDate() + expiredays);
+            document.cookie = name + "=" +
+             escape(value) +  ((expiredays==null)? "":";expires="+exdate.toGMTString());
+        }
+        function delCookie (name) {
+            // 设置cookie的过期时间 就相当于删除
+            var exp = new Date();
+            // 立即过期
+            exp.setTime(exp.getTime()-1);
+            var cval = getCookie(name);
+            if(!cval) {
+                document.cookie = name + "=" +cval +";expires="+exp.toGMTString();
+            }
+        }
+        // 让前端可以主动发起http请求
+        const xhr = new XMLHttpRequest();
+        // 谓词 POST|GET|PUT|DELETE
+        // 异步
+        // ajax 由xhr对象在浏览器端主动向服务器端的json资源发起请求
+        // 这个时候就需要协议http 要等到服务器端响应
+        // xhr.onreadystatechange  监听状态的改变
+        xhr.onreadystatechange = function() {
+            // 是否请求已经完成 0 还未开始 1 已经开始 2
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                console.log(JSON.parse(xhr.responseText).a);
+                // var responseObj =
+            }
+        }
+        xhr.open("GET", "/a.json", true);
+        xhr.send(null);
+
+        // document.cookie = 'uid=123122was=12870124712';
+        // console.log(getCookie('uid'));
+        // setCookie('uuid','==23198713', 30);
+    </script>
+</body>
+</html>
