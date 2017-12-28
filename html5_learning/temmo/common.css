@@ -1,0 +1,227 @@
+ *{
+    box-sizing: border-box;
+    user-select: none;
+  }
+  body, html {
+    font-family: 微软雅黑, cursive;
+    background: rgb(0,0,0);
+    margin: 0;
+  }
+  #Site {
+    position: absolute;
+    width: 874px;
+    height: 685px;
+    padding: 40px;
+    color: #440a0e;
+    opacity: 0;
+    transition: opacity 400ms ease-out;    
+  }
+  
+  #Site.init {
+    opacity: 1;
+  }
+  
+  .main-container {
+    width: 100%;
+    height: 100%;
+    max-width: 200vmin;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .bg-img, .overflow-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  .asset {
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  
+  
+  .catwalk-left {
+      bottom: 6.9%;
+      left: 0;
+      width: 50%;
+      height: 60%;
+      background-image: url(http://lol.qq.com/act/a20161020teemo/_img/click/catwalk-left.png);
+      z-index: 10;
+  }
+  
+  .catwalk-right {
+    bottom: 0;
+    right: 0;
+    width: 23%;
+    height: 44.4%;
+    background-image: url(http://lol.qq.com/act/a20161020teemo/_img/click/catwalk2.png);
+  }
+  
+  .bottles {
+    bottom: 7.7%;
+    right: 0%;
+    width: 25%;
+    height: 24.7%;
+    background-image: url(http://lol.qq.com/act/a20161020teemo/_img/click/_bottles.png);
+    background-size: auto 100%;
+    background-position: 0% 0%;
+  }
+  
+  .rack {
+    bottom: 7.6%;
+    right: 0%;
+    width: 25%;
+    height: 13.3%;
+    background-image: url(http://lol.qq.com/act/a20161020teemo/_img/click/potion-rack.png);
+  }
+  
+  .smoke {
+    width: 50.5%;
+    height: 37.7%;
+    top: 17.8%;
+    left: 36.3%;
+    z-index: 10;
+    background-image: url(http://lol.qq.com/act/a20161020teemo/_img/click/_smoke2.png);
+    background-size: auto 100%;
+    animation: smokeAnimation 1.2s infinite steps(5);
+    -webkit-animation: smokeAnimation 1.2s infinite steps(5);
+    opacity: 0.2;
+  }
+  
+  
+  .click-container {
+    top: 54%;
+    left: 50%;
+    -wekbit-transform: translate3d(-50%, 0%, 0);
+    -moz-transform: translate3d(-50%, 0%, 0);
+    transform: translate3d(-50%, 0%, 0);
+    width: 18.5%;
+    height: 32%;
+    z-index: 103;
+    position: absolute;
+    text-align: center;
+    transition: transform 400ms cubic-bezier(0.600, -0.280, 0.735, 0.345);
+  }
+  
+  .click-sign {
+      width: 100%;
+      height: 100%;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 3vmin;
+      line-height: 88%;
+      text-align: center;
+      z-index: 10;
+      margin: 0 auto;
+      display: inline-block;
+      transition: opacity 200ms ease-out;
+      background-image: url(http://lol.qq.com/act/a20161020teemo/_img/click/button.png);
+      background-size: 100% auto;
+      background-repeat: no-repeat;
+  }
+  
+  .cauldron-container {
+    position: absolute;
+    width: 51.1%;
+    height: 64%;
+    bottom: 18.9%;
+    left: 30.7%;
+    z-index: 1;
+  }
+  .cauldron {
+    width: 100%;
+    height: 50%;
+    background-image: url('http://lol.qq.com/act/a20161020teemo/_img/click/cauldron.png');
+    bottom: 0;
+    left: 0;
+    background-size: auto 100%;
+  }
+  .cauldron asset {
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  .door-mask {
+    position: absolute;
+    width: 20.8%;
+    height: 9%;
+    right: 0;
+    top: 49.9%;
+    overflow: hidden;
+}
+.door-shadow {
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 18%;
+    background-image: url(../_img/click/door-shadow.png);
+    z-index: 10;
+    background-repeat: no-repeat;
+}
+.minion-transition {
+    /* animation: minionRightMove 3.2s infinite linear; */
+    /* -webkit-animation: minionRightMove 3.2s infinite linear; */
+    -webkit-animation: minionRightMove 3.2s infinite linear -0.8s;
+    height: 100%;
+    position: absolute;
+}
+.minion-right {
+    height: 100%;
+    position: relative;
+    background-image: url(../_img/click/minion-walk.png);
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    animation: minionWalkAnimation 0.4s infinite steps(3);
+    -webkit-animation: minionWalkAnimation 0.4s infinite steps(3);
+}
+.minion-right.delay2 {
+    animation-delay: -.2s;
+    -webkit-animation-delay: -.2s;
+}
+img.img-spacer {
+    opacity: 1;
+    height: 100%;
+}
+@keyframes minionWalkAnimation {
+    100% {
+        background-position: 100%;
+    }
+}
+@keyframes minionRightMove {
+    0% {
+        -webkit-transform: scaleX(-1) translate3d(-300%, 0, 0);
+    }
+    25% {
+        -webkit-transform: scaleX(-1) translate3d(-200%, 0, 0);
+    }
+    50% {
+        -webkit-transform: scaleX(-1) translate3d(-100%, 0, 0);
+    }
+    70% {
+        -webkit-transform: scaleX(-1) translate3d(0, 0, 0);
+    }
+    100% {
+        -webkit-transform: scaleX(-1) translate3d(100%, 0, 0);
+    }
+}
+
+
+  @keyframes smokeAnimation {
+    0% {
+      background-position: 0%;
+    }
+  
+    32% {
+      background-position: 100%;
+    }
+  
+    100% {
+      background-position: 0%;
+    }
+  }
+
+
+  
+ 

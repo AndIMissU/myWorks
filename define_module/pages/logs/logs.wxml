@@ -1,0 +1,6 @@
+<!--logs.wxml-->
+<view class="container log-list">
+  <cpt inner-text="{{text}}">
+    <view>这是插入到组件slot中的内容</view>
+  </cpt>
+</view>

@@ -1,0 +1,6 @@
+<view class="inner">
+    <slot name="header"></slot>
+    {{innerText}}
+    <button bindtap="customMethod">点击</button>
+    <slot name="footer"></slot>
+</view>
