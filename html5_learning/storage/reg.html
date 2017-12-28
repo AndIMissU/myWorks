@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>正则表达式学习 获取cookie里面特定的值</title>
+</head>
+<body>
+    <script>
+        function getCookie(name) {
+            var arr, reg = new RegExp("(^|)"+ name+ "=([^;]*)(;|$)");
+            if ( arr = document.cookie.match(reg)) {
+                return arr[2];
+            } else {
+                return null;
+            }
+        }
+        var str = '_mkto_trk=id:335-VIN-535&token:_mch-qs.com-1511925175055-51355; _ga=GA1.2.1821934532.1511925175; username=ysw; uid=12345612';
+        var name = "uid";
+        // 正则表达式实例化
+        // ^ 所有  只要不是; 就是 当一个^在【】 里面 表示取否  下面的表示 只要不是； 就行
+        // 在字符串内匹配特定值的小范围正则方式
+        // |$  以什么表示结束
+        // ^| 以什么开始
+        var reg = new RegExp("(^|)"+ name+ "=([^;]*)(;|$)");
+        // 正则表达式  这个regExp是一个对象 有 test mach
+        // var reg = /^$/
+        // macth方法可以转换为数组
+        var arr = str.match(reg);
+        console.log(arr[2]);
+        // var arr = reg.match(str);
+        // console.log(arr);
+    </script>
+</body>
+</html>
