@@ -1,0 +1,46 @@
+.tqb-date-picker {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+.tqb-date-picker.static {
+  position: relative;
+}
+.tqb-date-picker .tqb-dp-container {
+  flex: 1;
+}
+.tqb-date-picker .tqb-dp-header h3 {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: normal;
+  margin: 0;
+  line-height: 69px;
+}
+.tqb-date-picker .tqb-dp-header button {
+  position: absolute;
+  top: 0;
+  background-color: #fff;
+  border: none;
+  color: #aaa;
+  padding: 0;
+  height: 69px;
+  line-height: 69px;
+}
+.tqb-date-picker .tqb-dp-header .tqb-dp-close-button {
+  left: 0;
+}
+.tqb-date-picker .tqb-dp-header .tqb-dp-confirm-button {
+  right: 0;
+  font-size: 1rem;
+}
+.labels {
+  color: #0074d9;
+}
+.calendar {
+  font-size: 28px;
+}
