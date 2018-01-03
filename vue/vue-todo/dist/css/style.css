@@ -1,0 +1,74 @@
+html,
+body {
+  min-height: 100%;
+  height: 100%;
+}
+body {
+  background-color: #f5f5f5;
+  font-family: 'Open Sans', sans-serif;
+  font-style: 14px;
+}
+.clearfix {
+  overflow: auto;
+  zoom: 1;
+}
+.container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row wrap;
+}
+.todo-wrapper {
+  width: 400px;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 0 40px rgba(0,0,0,0.1);
+}
+.todo-header {
+  border-radius: 6px 6px 0 0;
+  background: url("https://images.unsplash.com/photo-1440613905118-99b921706b5c?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=255b304482a2f50d0917f3de7b06251e") no-repeat;
+  background-size: cover;
+  padding: 55px 20px;
+  position: relative;
+}
+.todo-header .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.2);
+  border-radius: 6px 6px 0 0;
+}
+.todo-header time {
+  color: #fff;
+  display: block;
+  position: relative;
+}
+.todo-header time .day {
+  font-size: 4em;
+  float: left;
+  margin-right: 10px;
+}
+.todo-header time .dayofweek {
+  display: block;
+  margin-top: 13px;
+  font-size: 1.4em;
+  font-weight: 700;
+}
+.todo-header .add-circle {
+  position: absolute;
+  background: #ff3c41;
+  color: #fff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  right: 20px;
+  bottom: -20px;
+  box-shadow: 0 0 13px #ffff3c;
+  cursor: pointer;
+}
+/*# sourceMappingURL=style.css.map */

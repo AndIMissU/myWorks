@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./node_modules/normalize.css/normalize.css">
+    <link rel="stylesheet" href="./dist/css/style.css">
+    <link rel="stylesheet" href="./node_modules/font-awesome/css/font-awesome.css">
+</head>
+<body>
+    <!-- font-awesome 这是一个技能点 解决特写问题 有可能10%的页面用到 其他的页面用不到 
+    所以要做到 按需加载  如/果用到了就单独加一下  
+    如何优化性能
+    减少http数  进行单独的打包 在dist目录下打包不同的js
+    用到响应的就加载 -->
+    <!-- normalize 不是一定要打包的  要打包进去的话要有以下概念：
+    1. 这个地方是否是整站开发  这样的打包进去的会比较多 
+        作为新手一般都是 模块化开发  然后就会有很多dist目录 对于通用性的模块 不要乱打包 这样可能会带来资源的重复加载 -->
+    
+    <div id="app" class="container">
+        <!-- mvvm 框架支持 vue react
+        <todo-header /> -->
+        <div class="todo-wrapper">
+            <div class="todo-header">
+                <div class="overlay"></div>
+                <time class="clearfix">
+                    <span class="day">2</span>
+                    <span class="dayofweek">星期二</span>
+                    <span class="month">1, 2018</span>
+                </time>
+                <div class="add-circle">
+                    <i class="fa fa-plus"></i>
+                </div>
+            </div>
+        </div>
+        
+        <div class="todo-content">
+            <!-- <todo-report></todo-report> -->
+            <div class="todo-content-title">
+                <h2>Your tasks</h2>
+                <p class="task-report">
+                    <span class="task-remain">0 完成</span> / 3 (任务)
+                </p>
+            </div>
+        </div>
+        <!-- stylus webpack
+        .styl modules
+        /.styl/ loader css -->
+    </div>
+</body>
+</html>

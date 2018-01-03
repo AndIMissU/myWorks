@@ -5,34 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>日历控件</title>
+    <!-- 这是在模拟一个业务 使用date-picker 给用户展示用法 bootstrap 是为了让网页该用什么就用什么 用来参考 -->
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/tqb-date-picker.css">
+    
 </head>
 <body>
-    <script>
-        let data = new Date();
-        console.log(`今天是${data.getFullYear()}年${data.getMonth()+1}月${data.getDate()}日`);
-        // +-{n}m/d/y
-        const METHODS = {
-            m: 'Month',
-            d: 'Date',
-            y: 'FullYear'
-        }
-        function resetDate(date, offset) {
-            offset = offset.toLowerCase();
-            let result = {};
-            // +- 法运算  有 ymd 三种
-            // 正则？
-            // var reg = new RegExp(/([-+]?\d+)([dmy])/);
-            // var arr = offset.match(reg);
-            offset.replace(/([+-]\d+)([dmy])/,(match, number, unit)=> {
-                // console.log(match, number, unit);
-                // 将字符串类型的number转为number
-                result[unit] = Number(number);
-                date[`set${METHODS[unit]}`](date[`get${[METHODS[unit]]}`]()+ result[unit]);
-            });
-            
-        }
-        resetDate(data, '+3d');
-        console.log(`今天是${data.getFullYear()}年${data.getMonth()+1}月${data.getDate()}日`);
-    </script>
+    <input type="text" class="tqb-date-picker-input" 
+    data-start="2017-06-26" data-format="yyyy-mm-dd" data-scattered="true" />
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./dist/tqb-date-picker.bundle.js"></script>
 </body>
 </html>
+
+
+
+

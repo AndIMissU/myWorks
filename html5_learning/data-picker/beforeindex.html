@@ -1,0 +1,42 @@
+
+<!-- 日历控件原来的 -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>日历控件</title>
+</head>
+<body>
+    <script>
+        let data = new Date();
+        console.log(`今天是${data.getFullYear()}年${data.getMonth()+1}月${data.getDate()}日`);
+        // +-{n}m/d/y
+        const METHODS = {
+            m: 'Month',
+            d: 'Date',
+            y: 'FullYear'
+        }
+        function resetDate(date, offset) {
+            offset = offset.toLowerCase();
+            let result = {};
+            // +- 法运算  有 ymd 三种
+            // 正则？
+            // var reg = new RegExp(/([-+]?\d+)([dmy])/);
+            // var arr = offset.match(reg);
+            offset.replace(/([+-]\d+)([dmy])/,(match, number, unit)=> {
+                // console.log(match, number, unit);
+                // 将字符串类型的number转为number
+                result[unit] = Number(number);
+                date[`set${METHODS[unit]}`](date[`get${[METHODS[unit]]}`]()+ result[unit]);
+            });
+            
+        }
+        resetDate(data, '+3d');
+        console.log(`今天是${data.getFullYear()}年${data.getMonth()+1}月${data.getDate()}日`);
+    </script>
+</body>
+</html> -->
+
+
