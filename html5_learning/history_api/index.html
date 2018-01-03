@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Home!</title>
+  <link rel="stylesheet" href="./common.css">
+</head>
+<body>
+  <div class="wrapper">
+    <ul class="nav">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="fluffy.html">Fluffy</a></li>
+      <li><a href="socks.html">Socks</a></li>
+      <li><a href="whiskers.html">Whiskers</a></li>
+    </ul>
+    <p class="content">
+       Welcome to Kittens! Home of Fluffy, Socks, and Whiskers. If you're not suffering from a cute overdose within the hour, then you really are a heartless bugger! Now lets look at some cats!
+    </p>
+    <div class="media">
+      <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1514991350069&di=d9c98b9ed7e301c27eb29b1ef1683fbc&imgtype=0&src=http%3A%2F%2Fimage.uczzd.cn%2F7396398471175156797.jpg%3Fid%3D0" alt="Fluffy!" class="photo">
+    </div>
+  </div>
+  <script src="https://cdn.bootcss.com/jquery/2.2.0/jquery.min.js"></script>
+  <script>
+      (function(){
+        $(function(){
+            function displayContent(state) {
+                $('.content').text(state.content);
+                $('.photo').attr('src',state.photo);
+                $('title').text(state.title);
+            }
+            function createState($content) {
+                var state = {
+                    content: $content.find('.content').text(),
+                    photo: $content.find('.photo').attr('src'),
+                    // title: $content.find('title').text()
+                }
+                // URL 在但也应用中不再一一对应page了 
+                // 这里先有一个状态对象 根据页面状态不同检索不同的状态 所以先将状态提取出来
+                return state;
+            }
+            $(document).on('click', 'a', (event)=>{
+                event.preventDefault();
+                // 显示新的页面
+                // 动态加载html
+                // 发送请求
+                const url = event.target.href;
+                const req = $.ajax(url);
+                // 异步就好了 等待请求完成，
+                req.done(data => {
+                    // $('.content').text($(data).find('.content').html());
+                    // $('.photo').attr('src',$(data).find('.photo').attr('src'));
+                    // 只有一个界面了,但是我们有四个state 
+                    // url不工作了 如何让url和state之间发生映射 利用状态改变
+                    let state = createState($(data));
+                    displayContent(state);
+                    // URL在浏览器实现里面就是一个堆栈
+                    history.pushState(state, state.title, url);
+                });
+            });
+            window.onpopstate = (event) => {
+                if(event.state) {
+                    displayContent(event.state);
+                } 
+            }
+        });
+      })();
+  </script>
+</body>
+</html>
