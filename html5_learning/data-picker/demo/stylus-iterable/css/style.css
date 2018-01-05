@@ -1,0 +1,44 @@
+table tr:nth-child(0) td {
+  height: 0px;
+  background: #add8e6;
+}
+table tr:nth-child(1) td {
+  height: 50px;
+  background: #add8e6;
+}
+table tr:nth-child(2) td {
+  height: 100px;
+  background: #add8e6;
+}
+table tr:nth-child(3) td {
+  height: 150px;
+  background: #add8e6;
+}
+table tr:nth-child(4) td {
+  height: 200px;
+  background: #add8e6;
+}
+table tr:nth-child(5) td {
+  height: 250px;
+  background: #add8e6;
+}
+table tr:nth-child(6) td {
+  height: 300px;
+  background: #add8e6;
+}
+table tr:nth-child(7) td {
+  height: 350px;
+  background: #add8e6;
+}
+table tr:nth-child(8) td {
+  height: 400px;
+  background: #add8e6;
+}
+table tr:nth-child(9) td {
+  height: 450px;
+  background: #add8e6;
+}
+table tr:nth-child(10) td {
+  height: 500px;
+  background: #add8e6;
+}
