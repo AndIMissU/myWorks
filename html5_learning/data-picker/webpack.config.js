@@ -6,6 +6,7 @@ module.exports = {
         // bundle打包
         'tqb-date-picker': './src/main.js'
     },
+    // 出口文件
     output: {
         filename: '[name].bundle.js',
         // 放在dist目录下  再windows和 Linux 目录下面盘符和根目录不一样  windows： C:\  linux： /var/root
@@ -21,7 +22,12 @@ module.exports = {
                 // 将所有以js结尾的东西都找出来
                 test: /\.js/,
                 exclude: /node_modules/,
-                loaders: ["babel-loader", "eslint-loader"]
+                loader: "babel-loader"
+            },
+            {
+                test: /\.hbs/,
+                exclude: /node_modules/,
+                loader: "handlebars-loader"
             }
         ]
     },

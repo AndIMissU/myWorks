@@ -1,2 +1,72 @@
-.calendar
-    font-size 28px
+.tqb-date-picker
+    +prefix-classes('tqb-dp-')
+        .calendar-item
+            header 
+                border-bottom 1px solid border-color 
+                margin-bottom 1rem
+            
+            h4
+                color red 
+                text-align center
+                margin 0
+                line-height 3.25
+                font-weight normal
+            
+            ul
+                display flex 
+                flex-wrap wrap
+                margin 0
+                padding 0
+                border-bottom 1px solid border-color 
+
+                li
+                    list-style none
+                    min-width 14.285714%
+                    max-width 14.285714%
+                    flex 1 1 14.285714%
+                    text-align center
+                    line-height 3rem
+                    margin-bottom 1rem
+
+                    for n in (0..6)
+                        saturday = 8 - n
+                        sunday = 9 - n
+                        &.empty-{n}
+                            counter-reset date 
+                            flex n n 14.285714% * n
+                            min-width 14.285714% * n 
+                            max-width 100%
+
+                            ~ :nth-child(7n + {saturday}),
+                            ~ :nth-child(7n + {sunday})
+                                color red
+
+                    &:not(:first-child):before
+                        content counter(date)
+                        counter-increment date
+
+                    &.today
+                        position relative
+
+                    &.today:after
+                        content ''
+                        position absolute
+                        width point-radius
+                        height point-radius
+                        line-height point-radius
+                        font-size point-radius
+                        border-radius 50%
+                        background-color red
+                        left 50%
+                        margin-left - (point-radius / 2)
+                        bottom 0.5rem
+
+                    &.select
+                        background radial-gradient(circle at center,
+                         aqua 0, aqua 50%, transparent 68%, transparent 100%)
+
+                    &.disabled
+                        color gray !important
+
+
+

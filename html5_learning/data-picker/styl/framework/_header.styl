@@ -1,7 +1,7 @@
 .tqb-date-picker
-    +prefix-classes('tqb-dp-')
+    +prefix-classes("tqb-dp-")
         .header
-
+            
             h3
                 text-align center
                 font-size 1.2rem
@@ -13,18 +13,16 @@
                 position absolute
                 top 0
                 background-color white
-                border none
-                color  gray 
+                border none 
+                color gray 
                 padding 0
+                // 使用变量的本质是替换  在定义header-height的地方有等号 实际上是正则表达式的判断
                 height header-height - 1px
-                line-height header-height - 1px
                 width 3rem
 
-                    &.close-button
-                        left 0
-
-                    &.confirm-button
-                        right 0
-                        font-size 1rem
-
-        
+                &.close-button
+                    left 0
+                
+                &.confirm-button
+                    right 0
+                    font-size 1rem

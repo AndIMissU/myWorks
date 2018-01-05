@@ -4,11 +4,11 @@ import $ from 'jquery';
 // console.log('aaaa');
 import Factory from './Factory';
 $('body').on('click','.tqb-date-picker-input',event => {
-    console.log(event.target);
+    // console.log(event.target);
       let target = $(event.currentTarget);
-      console.log(target);
+      // console.log(target);
       let options = target.data();
-      console.log(options);
+      // console.log(options);
       // let target = $(event.currentTarget);
     //   Factory用的太大了吧？如果别的地方也要用Factory概念？ 打包时会用命名空间
       let picker = Factory.createDatePicker(target, options);
