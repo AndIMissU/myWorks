@@ -33,6 +33,7 @@
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
     "css-loader": "^0.28.7",
+    "stylus-loader": "^3.0.1",
     "vue-loader": "^13.6.2",
     "vue-template-compiler": "^2.5.13",
     "webpack": "^3.10.0"
