@@ -65,12 +65,12 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 38);
+/******/ 	return __webpack_require__(__webpack_require__.s = 37);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 25:
+/***/ 24:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -106,15 +106,13 @@ Object.defineProperty(exports, "__esModule", {
 
 exports.default = {
     methods: {
-        tabTo: function tabTo(key) {
-            console.log(key);
-        }
+        chooseChannel: function chooseChannel() {}
     }
 };
 
 /***/ }),
 
-/***/ 28:
+/***/ 26:
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -123,121 +121,166 @@ module.exports = {
   },
   "wrapper": {
     "position": "fixed",
-    "bottom": 0,
+    "top": 114,
     "left": 0,
     "right": 0,
-    "height": 90,
-    "flexWrap": "nowrap",
-    "flexDirection": "row",
-    "justifyContent": "space-around",
-    "borderTopWidth": 1,
-    "borderTopColor": "#d9d9d9",
-    "backgroundColor": "#fafafa"
+    "height": 54,
+    "zIndex": 10,
+    "backgroundColor": "#fafafa",
+    "borderBottomWidth": 1,
+    "borderBottomColor": "#d9d9d9"
   },
-  "bar-item": {
-    "flex": 1
+  "w-ipx": {
+    "top": 154
   },
-  "bar-txt": {
-    "color": "#666666",
-    "textAlign": "center",
-    "paddingTop": 2,
-    "fontSize": 22
+  "scroller": {
+    "height": 54,
+    "flexDirection": "row"
   },
-  "bar-ic": {
-    "color": "#666666",
-    "textAlign": "center",
-    "paddingTop": 14,
-    "fontSize": 38
+  "i-c": {
+    "paddingTop": 10,
+    "paddingLeft": 45,
+    "paddingRight": 45,
+    "paddingBottom": 6,
+    "fontSize": 26,
+    "color": "#333333"
   },
-  "bar-active": {
+  "c-act": {
     "color": "#b4282d"
+  },
+  "j-uline": {
+    "position": "absolute",
+    "left": 30,
+    "bottom": 0,
+    "width": 82,
+    "height": 4,
+    "backgroundColor": "#b4282d"
+  },
+  "more": {
+    "position": "absolute",
+    "top": 0,
+    "right": 0,
+    "height": 52,
+    "width": 100,
+    "backgroundColor": "#fafafa",
+    "textAlign": "center",
+    "paddingTop": 10,
+    "opacity": 0.96,
+    "boxShadow": "-6px -4px 4px #fafafa"
   }
 }
 
 /***/ }),
 
-/***/ 31:
+/***/ 29:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: ["wrapper"]
+  }, [_c('scroller', {
+    staticClass: ["scroller"],
+    attrs: {
+      "scrollDirection": "horizontal",
+      "loadmoreoffset": "750px",
+      "showScrollbar": "false"
+    },
+    on: {
+      "click": _vm.chooseChannel
+    }
   }, [_c('div', {
-    staticClass: ["bar-item"],
-    on: {
-      "click": function($event) {
-        _vm.tabTo('home')
-      }
+    ref: "jcLine",
+    staticClass: ["j-uline"],
+    style: _vm.jLPosition
+  }), _c('text', {
+    ref: "actJC",
+    staticClass: ["i-c", "c-act"],
+    attrs: {
+      "jact": "true"
     }
-  }, [_c('text', {
-    staticClass: ["bar-ic", "iconfont"]
-  }, [_vm._v("")]), _c('text', {
-    staticClass: ["bar-txt"]
-  }, [_vm._v("首页")])]), _c('div', {
-    staticClass: ["bar-item"],
-    on: {
-      "click": function($event) {
-        _vm.tabTo('topic')
-      }
+  }, [_vm._v("推荐")]), _c('text', {
+    staticClass: ["i-c"],
+    attrs: {
+      "jact": "true"
     }
-  }, [_c('text', {
-    staticClass: ["bar-ic", "iconfont"]
-  }, [_vm._v("")]), _c('text', {
-    staticClass: ["bar-txt"]
-  }, [_vm._v("专题")])]), _c('div', {
-    staticClass: ["bar-item"],
-    on: {
-      "click": function($event) {
-        _vm.tabTo('class')
-      }
+  }, [_vm._v("限时购")]), _c('text', {
+    staticClass: ["i-c"],
+    attrs: {
+      "jact": "true"
     }
-  }, [_c('text', {
-    staticClass: ["bar-ic", "iconfont"]
-  }, [_vm._v("")]), _c('text', {
-    staticClass: ["bar-txt"]
-  }, [_vm._v("分类")])]), _c('div', {
-    staticClass: ["bar-item"],
-    on: {
-      "click": function($event) {
-        _vm.tabTo('shop')
-      }
+  }, [_vm._v("新品")]), _c('text', {
+    staticClass: ["i-c"],
+    attrs: {
+      "jact": "true"
     }
-  }, [_c('text', {
-    staticClass: ["bar-ic", "iconfont"]
-  }, [_vm._v("")]), _c('text', {
-    staticClass: ["bar-txt"]
-  }, [_vm._v("购物车")])]), _c('div', {
-    staticClass: ["bar-item"],
-    on: {
-      "click": function($event) {
-        _vm.tabTo('my')
-      }
+  }, [_vm._v("居家")]), _c('text', {
+    staticClass: ["i-c"],
+    attrs: {
+      "jact": "true"
     }
-  }, [_c('text', {
-    staticClass: ["bar-ic", "iconfont"]
-  }, [_vm._v("")]), _c('text', {
-    staticClass: ["bar-txt"]
-  }, [_vm._v("个人")])])])
+  }, [_vm._v("餐厨")]), _c('text', {
+    staticClass: ["i-c"],
+    attrs: {
+      "jact": "true"
+    }
+  }, [_vm._v("配件")]), _c('text', {
+    staticClass: ["i-c"],
+    attrs: {
+      "jact": "true"
+    }
+  }, [_vm._v("服装")]), _c('text', {
+    staticClass: ["i-c"],
+    attrs: {
+      "jact": "true"
+    }
+  }, [_vm._v("电器")]), _c('text', {
+    staticClass: ["i-c"],
+    attrs: {
+      "jact": "true"
+    }
+  }, [_vm._v("洗护")]), _c('text', {
+    staticClass: ["i-c"],
+    attrs: {
+      "jact": "true"
+    }
+  }, [_vm._v("杂货")]), _c('text', {
+    staticClass: ["i-c"],
+    attrs: {
+      "jact": "true"
+    }
+  }, [_vm._v("饮食")]), _c('text', {
+    staticClass: ["i-c"],
+    attrs: {
+      "jact": "true"
+    }
+  }, [_vm._v("婴童")]), _c('text', {
+    staticClass: ["i-c"],
+    attrs: {
+      "jact": "true"
+    }
+  }, [_vm._v("志趣")])]), _c('text', {
+    staticClass: ["more", "iconfont"]
+  }, [_vm._v("")])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 
 /***/ }),
 
-/***/ 38:
+/***/ 37:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(28)
+__vue_styles__.push(__webpack_require__(26)
 )
 
 /* script */
-__vue_exports__ = __webpack_require__(25)
+__vue_exports__ = __webpack_require__(24)
 
 /* template */
-var __vue_template__ = __webpack_require__(31)
+var __vue_template__ = __webpack_require__(29)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -249,10 +292,10 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/Users/apple/myWorks/qs_weex/try-weex/src/assets/components/tabBar.vue"
+__vue_options__.__file = "/Users/apple/myWorks/qs_weex/try-weex/src/assets/components/TopChannel.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-023e34ea"
+__vue_options__._scopeId = "data-v-0d55f0db"
 __vue_options__.style = __vue_options__.style || {}
 __vue_styles__.forEach(function (module) {
   for (var name in module) {

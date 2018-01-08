@@ -1,9 +1,7 @@
 <template>
   <div class="app-wrapper">
-    <home-header></home-header>
-    <!-- <top-channel></top-channel> -->
+    <router-view></router-view>
 
-    <tab-bar></tab-bar>
   </div>
 </template>
 
@@ -30,13 +28,18 @@
 
 
 <script>
+// export default {
+
+// }
   import util from './assets/util';
   import tabBar from './assets/components/tabBar.vue';
   import Header from './assets/components/Header.vue';
+  import TopChannel from './assets/components/TopChannel.vue';
   export default {
     "components": {
       'tab-bar': tabBar,
-      'home-header':Header
+      'home-header':Header,
+      'top-channel':TopChannel
     },
     // 生命周期 组件创建了之后
     created () {

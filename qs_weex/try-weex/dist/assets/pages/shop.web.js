@@ -65,7 +65,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 51);
+/******/ 	return __webpack_require__(__webpack_require__.s = 55);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -349,6 +349,25 @@ function applyToTag (styleElement, obj) {
 
 /***/ }),
 
+/***/ 14:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+//
+//
+//
+//
+//
+
+exports.default = {};
+
+/***/ }),
+
 /***/ 2:
 /***/ (function(module, exports) {
 
@@ -447,6 +466,37 @@ module.exports = function normalizeComponent (
 
 /***/ }),
 
+/***/ 21:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(0)();
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n", "", {"version":3,"sources":[],"names":[],"mappings":"","file":"shop.vue","sourceRoot":""}]);
+
+// exports
+
+
+/***/ }),
+
+/***/ 28:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('text', [_vm._v("This is shop")])])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-7ed502d4", module.exports)
+  }
+}
+
+/***/ }),
+
 /***/ 3:
 /***/ (function(module, exports) {
 
@@ -481,29 +531,68 @@ module.exports = function listToStyles (parentId, list) {
 
 /***/ }),
 
-/***/ 41:
+/***/ 35:
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(21);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(1)("13cc5da1", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../node_modules/css-loader/index.js?sourceMap!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-7ed502d4\",\"scoped\":false,\"hasInlineConfig\":false}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./shop.vue", function() {
+     var newContent = require("!!../../../node_modules/css-loader/index.js?sourceMap!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-7ed502d4\",\"scoped\":false,\"hasInlineConfig\":false}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./shop.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+
+/***/ 55:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var App = __webpack_require__(8);
+App.el = '#root';
+new Vue(App);
+
+/***/ }),
+
+/***/ 8:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(65)
+  __webpack_require__(35)
 }
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(46),
+  __webpack_require__(14),
   /* template */
-  __webpack_require__(62),
+  __webpack_require__(28),
   /* styles */
   injectStyle,
   /* scopeId */
-  "data-v-89412c98",
+  null,
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "/Users/apple/myWorks/qs_weex/try-weex/src/assets/components/tabBar.vue"
+Component.options.__file = "/Users/apple/myWorks/qs_weex/try-weex/src/assets/pages/shop.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] tabBar.vue: functional components are not supported with templates, they should use render functions.")}
+if (Component.options.functional) {console.error("[vue-loader] shop.vue: functional components are not supported with templates, they should use render functions.")}
 
 /* hot reload */
 if (false) {(function () {
@@ -512,9 +601,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-89412c98", Component.options)
+    hotAPI.createRecord("data-v-7ed502d4", Component.options)
   } else {
-    hotAPI.reload("data-v-89412c98", Component.options)
+    hotAPI.reload("data-v-7ed502d4", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -524,210 +613,7 @@ if (false) {(function () {
 module.exports = Component.exports
 
 
-/***/ }),
-
-/***/ 46:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-exports.default = {
-    methods: {
-        tabTo: function tabTo(key) {
-            console.log(key);
-        }
-    }
-};
-
-/***/ }),
-
-/***/ 51:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var App = __webpack_require__(41);
-App.el = '#root';
-new Vue(App);
-
-/***/ }),
-
-/***/ 57:
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(0)();
-// imports
-
-
-// module
-exports.push([module.i, "\n.iconfont[data-v-89412c98] {\n    font-family:iconfont;\n}\n.wrapper[data-v-89412c98] {\n    position: fixed;\n    bottom: 0;\n    left: 0;\n    right: 0;\n    height: 90px;\n    /* 默认弹性布局 */\n    /* 不要换行 */\n    flex-wrap: nowrap;\n    flex-direction: row;\n    justify-content: space-around;\n    border-top-width: 1px;\n    border-top-color: #d9d9d9;\n    background-color: #fafafa;\n}\n.bar-item[data-v-89412c98] {\n    flex: 1;\n}\n.bar-txt[data-v-89412c98], .bar-ic[data-v-89412c98] {\n    color: #666666;\n    text-align: center;\n}\n.bar-active[data-v-89412c98] {\n    color: #b4282d;\n}\n.bar-ic[data-v-89412c98] {\n    padding-top: 14px;\n    font-size: 38px;\n}\n.bar-txt[data-v-89412c98] {\n    padding-top: 2px;\n    font-size: 22px;\n}\n", "", {"version":3,"sources":["/Users/apple/myWorks/qs_weex/try-weex/src/assets/components/tabBar.vue?75240c54"],"names":[],"mappings":";AAoCA;IACA,qBAAA;CACA;AACA;IACA,gBAAA;IACA,UAAA;IACA,QAAA;IACA,SAAA;IACA,aAAA;IACA,YAAA;IACA,UAAA;IACA,kBAAA;IACA,oBAAA;IACA,8BAAA;IACA,sBAAA;IACA,0BAAA;IACA,0BAAA;CACA;AACA;IACA,QAAA;CACA;AACA;IACA,eAAA;IACA,mBAAA;CACA;AACA;IACA,eAAA;CACA;AACA;IACA,kBAAA;IACA,gBAAA;CACA;AACA;IACA,iBAAA;IACA,gBAAA;CACA","file":"tabBar.vue","sourcesContent":["<template>\n    <div class=\"wrapper\">\n        <div class=\"bar-item\" @click=\"tabTo('home')\">\n            <text class=\"bar-ic iconfont\">&#xe660;</text>\n            <text class=\"bar-txt\">首页</text>\n        </div>\n        <div class=\"bar-item\" @click=\"tabTo('topic')\">\n            <text class=\"bar-ic iconfont\">&#xe744;</text>\n            <text class=\"bar-txt\">专题</text>\n        </div>\n        <div class=\"bar-item\" @click=\"tabTo('class')\">\n            <text class=\"bar-ic iconfont\">&#xe605;</text>\n            <text class=\"bar-txt\">分类</text>\n        </div>\n        <div class=\"bar-item\" @click=\"tabTo('shop')\">\n            <text class=\"bar-ic iconfont\">&#xe61a;</text>\n            <text class=\"bar-txt\">购物车</text>\n        </div>\n        <div class=\"bar-item\" @click=\"tabTo('my')\">\n            <text class=\"bar-ic iconfont\">&#xe639;</text>\n            <text class=\"bar-txt\">个人</text>\n        </div>\n    </div>\n</template>\n<script>\nexport default {\n  methods: {\n      tabTo (key) {\n          console.log(key);\n      }\n  }\n}\n</script>\n\n\n<style scoped>\n    .iconfont {\n        font-family:iconfont;\n    }\n    .wrapper {\n        position: fixed;\n        bottom: 0;\n        left: 0;\n        right: 0;\n        height: 90px;\n        /* 默认弹性布局 */\n        /* 不要换行 */\n        flex-wrap: nowrap;\n        flex-direction: row;\n        justify-content: space-around;\n        border-top-width: 1px;\n        border-top-color: #d9d9d9;\n        background-color: #fafafa;\n    }\n    .bar-item {\n        flex: 1;\n    }\n    .bar-txt, .bar-ic {\n        color: #666666;\n        text-align: center;\n    }\n    .bar-active {\n        color: #b4282d;\n    }\n    .bar-ic {\n        padding-top: 14px;\n        font-size: 38px;\n    }\n    .bar-txt {\n        padding-top: 2px;\n        font-size: 22px;\n    }\n</style>\n\n\n"],"sourceRoot":""}]);
-
-// exports
-
-
-/***/ }),
-
-/***/ 62:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "wrapper",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined))
-  }, [_c('div', {
-    staticClass: "bar-item",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined)),
-    on: {
-      "click": function($event) {
-        _vm.tabTo('home')
-      }
-    }
-  }, [_c('text', {
-    staticClass: "bar-ic iconfont",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined))
-  }, [_vm._v("")]), _vm._v(" "), _c('text', {
-    staticClass: "bar-txt",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined))
-  }, [_vm._v("首页")])]), _vm._v(" "), _c('div', {
-    staticClass: "bar-item",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined)),
-    on: {
-      "click": function($event) {
-        _vm.tabTo('topic')
-      }
-    }
-  }, [_c('text', {
-    staticClass: "bar-ic iconfont",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined))
-  }, [_vm._v("")]), _vm._v(" "), _c('text', {
-    staticClass: "bar-txt",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined))
-  }, [_vm._v("专题")])]), _vm._v(" "), _c('div', {
-    staticClass: "bar-item",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined)),
-    on: {
-      "click": function($event) {
-        _vm.tabTo('class')
-      }
-    }
-  }, [_c('text', {
-    staticClass: "bar-ic iconfont",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined))
-  }, [_vm._v("")]), _vm._v(" "), _c('text', {
-    staticClass: "bar-txt",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined))
-  }, [_vm._v("分类")])]), _vm._v(" "), _c('div', {
-    staticClass: "bar-item",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined)),
-    on: {
-      "click": function($event) {
-        _vm.tabTo('shop')
-      }
-    }
-  }, [_c('text', {
-    staticClass: "bar-ic iconfont",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined))
-  }, [_vm._v("")]), _vm._v(" "), _c('text', {
-    staticClass: "bar-txt",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined))
-  }, [_vm._v("购物车")])]), _vm._v(" "), _c('div', {
-    staticClass: "bar-item",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined)),
-    on: {
-      "click": function($event) {
-        _vm.tabTo('my')
-      }
-    }
-  }, [_c('text', {
-    staticClass: "bar-ic iconfont",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined))
-  }, [_vm._v("")]), _vm._v(" "), _c('text', {
-    staticClass: "bar-txt",
-    staticStyle: _vm.$processStyle(undefined),
-    style: (_vm.$processStyle(undefined))
-  }, [_vm._v("个人")])])])
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-89412c98", module.exports)
-  }
-}
-
-/***/ }),
-
-/***/ 65:
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(57);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(1)("96ef8c46", content, false);
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../node_modules/css-loader/index.js?sourceMap!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-89412c98\",\"scoped\":true,\"hasInlineConfig\":false}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./tabBar.vue", function() {
-     var newContent = require("!!../../../node_modules/css-loader/index.js?sourceMap!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-89412c98\",\"scoped\":true,\"hasInlineConfig\":false}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./tabBar.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
 /***/ })
 
 /******/ });
-//# sourceMappingURL=tabBar.web.js.map
+//# sourceMappingURL=shop.web.js.map
