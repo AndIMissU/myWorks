@@ -6,7 +6,7 @@ function Compile(el, vm){
     // fragment 叫做文档碎片 临时节点
     this.fragment = null;
     this.init();
-}
+};
 Compile.prototype = {
     init() {
         // 接管模块去编译  目前页面显示的不是html而是模版 所以需要从头开始处理模版
@@ -35,19 +35,80 @@ Compile.prototype = {
             // console.log(node);
             var reg = /\{\{(.*)\}\}/;
             var text = node.textContent;
-            if(text.length && reg.test(text)){
-                // console.log(reg.exec(text)[1]);
+            if(this.isElementNode(node)) {
+                // 如果这个是一个节点  就去分析节点
+                this.compile(node);
+            } else if (this.isTextNode(node) && reg.test(text)) {
                 this.CompileText(node, reg.exec(text)[1]);
+            }
+            // 递归 
+            if(node.childNodes && node.childNodes.length) {
+                this.CompileElement(node);
             }
         });
     },
+    compile(node) {
+        // 伪数组 nodeAttrs
+        var nodeAttrs = node.attributes;
+        Array.prototype.forEach.call(nodeAttrs, (attr)=> {
+            var attrName = attr.name;
+            if(this.isDirective(attrName)) {
+                var exp = attr.value;
+                var dir = attrName.substring(2);
+                if (this.isEventDirective(dir)) {
+                    this.compileEvent(node, this.vm, exp, dir);
+                } else {
+                    this.compileModel(node, this.vm, exp, dir);
+                }
+            }
+        });
+    },
+    isEventDirective (dir) {
+        // 判断是否有事件
+        return dir.indexOf('on:') === 0;
+    },
+    isDirective (attr) {
+        return attr.indexOf('v-') === 0;
+    },
+    isTextNode(node) {
+        return node.nodeType == 3;
+    },
+    isElementNode(node) {
+        return node.nodeType == 1;
+    },
     CompileText (node, exp) {
-        var initText = this.vm.data[exp];
+        var initText = this.vm[exp];
         this.updateText(node, initText);
+        new Watcher(this.vm, exp, value => {
+            this.updateText(node, value);
+        });
     },
     updateText (node, value) {
-        console.log(node, value);
         node.textContent = typeof value === 'underfined'?'':value
+    },
+    compileEvent (node, vm, exp, dir) {
+        var eventType = dir.split(':')[1];
+        var cb = vm.methods && vm.methods[exp];
+        if (eventType && cb) {
+            node.addEventListener(eventType, cb.bind(vm),false);
+        }
+    },
+    compileModel (node, vm, exp, dir) {
+        var val = this.vm[exp];
+        this.modelUpdater(node, val);
+        new Watcher(this.vm, exp, value => {
+            this.modelUpdater(node, value);
+        });
+        node.addEventListener('input', e => {
+            var newValue = e.target.value;
+            if(val == newValue) {
+                return;
+            }
+            this.vm[exp] = newValue;
+            val = newValue;
+        }) 
+    },
+    modelUpdater (node, value) {
+        node.value = typeof value == 'undefinde'?'': value;
     }
-
 }

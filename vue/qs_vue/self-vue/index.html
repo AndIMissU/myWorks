@@ -20,10 +20,12 @@
         <button v-on:click="clickMe">click Me !</button>
     </div>
     <!-- <script src="https://cdn.bootcss.com/vue/2.5.13/vue.min.js"></script> -->
+    <script src="./observer.js"></script>
+    <script src="./watcher.js"></script>
     <script src="./compile.js"></script>
     <script src="./vue.js"></script>
     <script>
-        new Vue({
+        const vm = new Vue({
             el: "#app",
             data: {
                 title: 'Hello World',
@@ -36,8 +38,9 @@
             },
             mounted() {
                 setTimeout(()=> {
+                    // console.log("您吃了么")
                     this.title = '吃了么？';
-                }, 1000)
+                }, 1000);
             }
         });
         
