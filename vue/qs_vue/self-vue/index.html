@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- vue renderer 渲染 -->
+    <!-- template -> pre complie
+    这个相当于一个 vue运行的scope区域 两个{{表示占位符  里面就是要替换的地方}} 
+    用正则找到这个里面的东西 然后替换 这个实现之后还要实时的编译 这个应该是一个节点 node 伪节点 节点也会有算法 -->
+    <div id="app">
+        <!-- 单向数据绑定 -->
+        <h2>{{title}}</h2>
+        <!-- 双向数据绑定 -->
+        <input v-model="name" />
+        <h1>{{name}}</h1>
+        <button v-on:click="clickMe">click Me !</button>
+    </div>
+    <!-- <script src="https://cdn.bootcss.com/vue/2.5.13/vue.min.js"></script> -->
+    <script src="./compile.js"></script>
+    <script src="./vue.js"></script>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                title: 'Hello World',
+                name: 'canfoo'
+            },
+            methods: {
+                clickMe() {
+                    this.title = '你好！';
+                }
+            },
+            mounted() {
+                setTimeout(()=> {
+                    this.title = '吃了么？';
+                }, 1000)
+            }
+        });
+        
+    </script>
+</body>
+</html>
