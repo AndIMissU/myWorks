@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>观察者模式-发布订阅者模式</title>
+    <style>
+        html, body{
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // 异步
+        document.body.addEventListener('click', ()=> {
+            alert(1);
+        });
+        document.body.addEventListener('click', ()=> {
+            alert(2);
+        });
+        document.body.addEventListener('click', ()=> {
+            alert(3);
+        });
+        // document.body.click();
+    </script>
+</body>
+</html>
