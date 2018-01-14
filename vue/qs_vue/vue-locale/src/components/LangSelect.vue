@@ -18,7 +18,9 @@ export default {
   },
   methods: {
       handleSetLanguage (lang) {
-          this.$i18n.locale = lang
+        //   切换语言 要做两件事  告诉中央值发生了改变  再是更新页面的值
+          this.$i18n.locale = lang;
+        //   dispatch 
           this.$store.dispatch('setLanguage', lang)
       }
   }
