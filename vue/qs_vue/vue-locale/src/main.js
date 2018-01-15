@@ -7,6 +7,9 @@ import i18n from './lang'
 import Element from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import store from './store'
+import './mock'
+import axios from 'axios'
+Vue.prototype.$http = axios
 
 Vue.use(Element, {
   size: 'medium',

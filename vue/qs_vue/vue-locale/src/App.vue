@@ -12,6 +12,14 @@ export default {
   name: 'App',
   components:{
     LangSelect
+  },
+  mounted () {
+    this.$http.post('/login/login', {
+      username: 'admin',
+      password: '123456'
+    }).then(response => {
+      console.log(response)
+    })
   }
 }
 </script>
