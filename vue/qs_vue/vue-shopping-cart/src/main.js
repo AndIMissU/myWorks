@@ -3,8 +3,11 @@
 import Vue from 'vue'
 import App from './App'
 import store from './store'
+import { currency } from './currency'
 
 Vue.config.productionTip = false
+// 过滤器 将不需要的过滤掉  还有vue.component
+Vue.filter('currency', currency)
 
 /* eslint-disable no-new */
 new Vue({
