@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>V-bind 实例</title>
+  <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+  <h1>V-bind 实例</h1>
+  <hr>
+  <div id="app">
+      <!-- V-bind 绑定标签上的属性 -->
+      <p><img v-bind:src="imgsrc" width="300px" /></p>
+      <!-- v-bind的缩写方法就是属性前面写一个： -->
+      <p><a :href="weburl" target="_blank">AndIMissU</a></p>
+      <hr>
+      <div :class="className">1. 绑定Class</div>
+      <div :class="{classA:isOk}">2. 绑定Class中的判断</div>
+      <div :class="[classA,classB]">3. 绑定Class中的数组</div>
+      <div :class="isOk?classA:classB">4. 绑定class重的三元运算符</div>
+      <hr>
+      <div>
+        <input type="checkbox" id="isOk" v-model="isOk">
+        <label for="isOk">isOk = {{isOk}}</label>
+      </div>
+      <hr>
+      <div :style="{color:red,fontSize:font}">5. 绑定style</div>
+      <div :style="styleObject">6. 对象绑定style</div>
+  </div>
+  <style>
+    .classA {
+      color: red;
+    }
+    .classB {
+      font-size: 150%;
+    }
+  </style>
+
+  <script type="text/javascript">
+    var app = new Vue({
+      el:'#app',
+      data: {
+        imgsrc: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1516380224227&di=25e2738b8c943dd85201aae7bcdd0525&imgtype=0&src=http%3A%2F%2Fimg.mp.sohu.com%2Fupload%2F20170602%2F34d2168b7c4a412488df4f42a64e1e83_th.png',
+        weburl: 'https://andimissu.github.io',
+        className: 'classA',
+        isOk: true,
+        classA: 'classA',
+        classB: 'classB',
+        red: 'red',
+        font: '20px',
+        styleObject: {
+          color: 'pink',
+          fontSize: '24px'
+        }
+      }
+    })
+  </script>
+</body>
+</html>

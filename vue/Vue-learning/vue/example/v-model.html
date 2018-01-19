@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>V-model数据源绑定 实例</title>
+  <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+  <h1>V-model数据源绑定 实例</h1>
+  <hr>
+  <div id="app">
+    <p>原始文本信息：{{message}}</p>
+    <h3>文本框的双向绑定</h3>
+    <br>
+    <p>v-model<input type="text" v-model="message"></p>
+
+    <!-- v-model 的一些修饰符 -->
+    <!-- v-model.lazy其实是懒加载 当在输入框输入时，双向绑定还没有生效，鼠标点击输入框之外时，双向绑定就绘改变数据 -->
+    <p>v-model.lazy<input type="text" v-model.lazy="message"></p>
+    <!-- v-model.number 表示里面必须是数字才能双向绑定数据源 如果一开始输入的是字符串那数据源还是字符串 
+    但如果一开始输入的是数字 后面输入字符串 那么会自动绑定前面的数字 清空后面的字符串 -->
+    <p>v-model.number<input type="text" v-model.number="message"></p>
+    <!-- v-model.trim 是去空格的这个功能 能将字符串前后的空格清除 加空格是没用的 但是在中间是有用的 -->
+    <p>v-model.trim<input type="text" v-model.trim="message"></p>
+    <hr>
+    <h3>文本域的双向绑定</h3>
+    <textarea cols="30" rows="5" v-model="message"></textarea>
+    <hr>
+    <h3>多选框绑定一个值</h3>
+    <input type="checkbox" id="isTrue" v-model="isTrue">
+    <label for="isTrue">{{isTrue}}</label>
+    <br>
+    <h3>多选框绑定数组</h3>
+    <p>
+      <input type="checkbox" id="jspang" value="jspang" v-model="web_name">
+      <label for="isTrue">jspang</label>
+      <input type="checkbox" id="panpan" value="panpan" v-model="web_name">
+      <label for="isTrue">panpan</label>
+      <input type="checkbox" id="Panda" value="Panda" v-model="web_name">
+      <label for="isTrue">Panda</label>
+    </p>
+    <p>{{web_name}}</p>
+    <hr>
+    <h3>单选框的绑定</h3>
+    <p>
+      <input type="radio" id="one" value="男" v-model="sex">
+      <label for="one">男</label>
+      <input type="radio" id="two" value="女" v-model="sex">
+      <label for="two">女</label>
+      <p>您选择的性别是{{sex}}</p>
+    </p>
+  </div>
+
+  <script type="text/javascript">
+    var app = new Vue({
+      el:'#app',
+      data: {
+        message: 'Hello Vue!',
+        isTrue: true,
+        web_name:[],
+        sex: '男'
+      }
+    })
+  </script>
+</body>
+</html>
