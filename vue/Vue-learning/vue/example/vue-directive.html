@@ -4,24 +4,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Vue2.0 实例</title>
+  <title>vue.directive 自定义指令</title>
   <script type="text/javascript" src="../assets/js/vue.js"></script>
 </head>
 <body>
-  <h1>V-text实例</h1>
+  <h1>vue.directive 自定义指令</h1>
   <hr>
   <div id="app">
-    <span>{{message}}</span>
-    <span v-text="message"></span>
-    <span v-html="dodo"></span>
+    <div v-haha="color">{{num}}</div>
+    <p><button @click="add">ADD</button></p>
   </div>
 
   <script type="text/javascript">
+    Vue.directive("haha", function(el,binding) {
+      console.log(el);
+      console.log(binding);
+      el.style = "color:"+binding.value;
+    })
     var app = new Vue({
       el:'#app',
       data: {
-        message: 'Hello Vue!',
-        dodo: '<h1>hahaha</h1>'
+        num: 10,
+        color: 'red'
+      },
+      methods: {
+        add: function() {
+          this.num++;
+        }
       }
     })
   </script>

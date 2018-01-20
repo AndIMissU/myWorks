@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue2.0 实例</title>
+  <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+  <h1>V-pre& v-cloak & v-once 实例</h1>
+  <hr>
+  <div id="app">
+    <!-- v-pre 表示让里面的内容原样输出 -->
+    <div v-pre>{{message}}</div>
+    <!-- v-cloak 表示渲染完成后再输出 -->
+    <div v-cloak>渲染完成后才显示</div>
+    <!-- v-once 只渲染一次  双向数据绑定只在第一次渲染就渲染 当数据再次被修改时不会发生更改 -->
+    <div v-once>{{message}}</div>
+    <div><input type="text" v-model="message"></div>
+    <div>{{message}}</div>
+  </div>
+
+  <script type="text/javascript">
+    var app = new Vue({
+      el:'#app',
+      data: {
+        message: 'Hello Vue!'
+      }
+    })
+  </script>
+</body>
+</html>
