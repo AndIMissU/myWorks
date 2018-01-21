@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue2.0 实例</title>
+  <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+  <h1>template模版三种写法</h1>
+  <hr>
+  第一种写法: 直接写在选项里的模板( 直接在构造器里的template选项后边编写。这种写法比较直观，
+  但是如果模板html代码太多，不建议这么写。)
+  <div id="app1"></div>
+  <script type="text/javascript">
+    var app1 = new Vue({
+      el: '#app1',
+      template:`
+         <h2 style="color:red">我是选项模板</h2>
+      `
+    });
+  </script>
+  第二种写法：写在 "script" 标签里的模板这种写模板的方法，可以让模板文件从外部引入。
+  <div id="app2"></div>
+  <script type="x-template" id="demo2">
+    <h2 style="color:green">我是script标签模板</h2>
+  </script>
+  <script type="text/javascript">
+    var app2 = new Vue({
+        el: '#app2',
+        template: '#demo2'
+    });
+  </script>
+  第三种写法：写在 "template" 标签里的模板(这种写法更像是在写HTML代码，就算不会写Vue的人，也可以制作页面。)
+  <div id="app3"></div>
+  <template id = "demo3">
+    <h2 style = "color:blue">我是template标签模板</h2>
+  </template>
+  <script>
+    var app3 = new Vue({
+      el: "#app3",
+      template: "#demo3"
+    });
+  </script>
+</body>
+</html>

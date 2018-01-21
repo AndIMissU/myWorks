@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue2.0 实例</title>
+  <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+  <h1>Vue extend 扩展实例构造器</h1>
+  扩展器绑定： <author></author> 
+  id绑定： <div id="author"></div> 
+
+  <script type="text/javascript">
+    var authorExtend = Vue.extend({
+      template: "<p><a :href='authorURL'>{{authorName}}</a></p>",
+      data: function() {
+        return {
+          authorName: 'hhh',
+          authorURL: 'https://andimissu.github.io'
+        }
+      }
+    });
+    // 所有的扩展器还需要挂载一下 绑定一下
+    new authorExtend().$mount("author");
+    new authorExtend().$mount("#author");
+  </script>
+</body>
+</html>

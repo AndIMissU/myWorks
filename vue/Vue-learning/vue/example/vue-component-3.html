@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue2.0 实例</title>
+  <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+  <h1>component-3 component父子组件关系</h1>
+  <hr>
+  <div id="app">
+    <fish></fish>
+  </div>
+
+  <script type="text/javascript">
+    // 在构造器外边声明了一个局部组件
+    var plantComponent = {
+      template: `<div style="color:blue">plants are from the ocean</div>`
+    }
+    var fishComponent = {
+      template: `
+        <div>
+          <p>fishes are from the ocean</p>
+          <plant-component></plant-component>
+        </div>
+      `,
+      components: {
+        "plant-component" : plantComponent 
+      }
+    }
+    
+    var app = new Vue({
+      el:'#app',
+      components: {
+        "fish": fishComponent
+      }
+    });
+  </script>
+</body>
+</html>

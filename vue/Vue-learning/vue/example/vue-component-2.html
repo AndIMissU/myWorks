@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue2.0 实例</title>
+  <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+  <h1>component-2 component属性</h1>
+  <hr>
+  <div id="app">
+    <fish :here="message"></fish>
+  </div>
+
+  <script type="text/javascript">
+    var app = new Vue({
+      el:'#app',
+      data:{
+        message: 'Ocean'
+      },
+      components: {
+        "fish": {
+          template: `<div style="color:blue">fishes from {{here}}</div>`,
+          // Vue不支持中间带-的写法的Props 所以可以使用小驼峰的写法(from-here => fromHere 中间字母大写) 
+          // 或者大驼峰的写法表示 (from-here => FromHere)
+          props: ['here']
+        }
+      }
+    });
+  </script>
+</body>
+</html>
