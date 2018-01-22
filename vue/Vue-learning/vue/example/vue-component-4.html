@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue2.0 实例</title>
+  <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+  <h1>component-4 component标签</h1>
+  <hr>
+  <div id="app">
+    <component :is="who"></component>
+    <button @click="Change">ChangeComponent</button>
+  </div>
+
+  <script type="text/javascript">
+    // 注册全局组件 在构造器外边
+    var componentA = {
+      template: `<div style="color:red">I'm ComponentA</div>`
+    }
+    var componentB = {
+      template: `<div style="color:green">I'm ComponentB</div>`
+    }
+    var componentC = {
+      template: `<div style="color:blue">I'm ComponentC</div>`
+    }
+    
+    var app = new Vue({
+      el:'#app',
+      data:{
+        who: "componentB"
+      },
+      components: {
+        "componentA": componentA,
+        "componentB": componentB,
+        'componentC': componentC
+      },
+      methods: {
+        Change: function() {
+          if(this.who == "componentA") {
+            this.who = "componentB";
+          } else if (this.who == "componentB") {
+            this.who = "componentC";
+          } else {
+            this.who = "componentA";
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

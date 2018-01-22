@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script type="text/javascript" src="../assets/js/vue.js"></script>
+  <title>第三季： 构造器里的选项</title>
+  
+</head>
+<body>
+  <h1>methods Option</h1>
+  <hr>
+  <div id="app">
+    <p>{{ a }}</p>
+    <p>原生的vue调用方法</p>
+    <p><button @click="add(2,$event)">ADD</button></p>
+    <p>用.native修饰器来调用构造器里的add方法</p>
+    <p><btn @click.native="add(2)"></btn></p>
+  </div>
+  <p>作用域外部调用构造器里的方法</p>
+  <p><button onclick="app.add(2)">ADD(外部调用)</button></p>
+
+  <script>
+    var btn = {
+      template: `<button>组件ADD</button>`
+    }
+    var app = new Vue({
+      el:'#app',
+      data: {
+        a: 1
+      },
+      components: {
+        "btn": btn
+      },
+      methods: {
+        add: function(num, event) {
+          if(num != '') {
+            this.a += num;
+          } else {
+            this.a++;
+          }
+          console.log(event);
+        }
+      }
+    });
+  </script>
+</body>
+</html>

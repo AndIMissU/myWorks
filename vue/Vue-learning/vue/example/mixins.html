@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script type="text/javascript" src="../assets/js/vue.js"></script>
+  <title>第三季： 构造器里的选项</title>
+  
+</head>
+<body>
+  <h1>mixins Option</h1>
+  <hr>
+  <p>Mixins一般有两种用途: </p>
+  <p>1、在你已经写好了构造器后，需要增加方法或者临时的活动时使用的方法，这时用混入会减少源代码的污染。</p>
+  <p>2、很多地方都会用到的公用方法，用混入的方法可以减少代码量，实现代码重用。</p>
+  <hr>
+  <div id="app">
+    <p>{{ num }}</p>
+    <p><button @click="add">add</button></p>
+  </div>
+  <p>Vue 一般 混入的mixins里面的生命周期函数比原生的生命周期函数先执行</p>
+  <p>全局的混入mixin比局部的mixin还要提前执行</p>
+  <h2>PS：当混入方法和构造器的方法重名时，混入的方法无法展现，也就是不起作用。</h2>
+  <script>
+    // 局部的混入mixins 需要在构造器里面声明
+    var addConsole = {
+      updated: function() {
+        console.log("数据发生变化变化成了"+ this.num);
+      }
+    };
+    // 全局的混入mixins
+    Vue.mixin({
+      updated: function() {
+        console.log("我是全局的混入");
+      }
+    })
+    var app = new Vue({
+      el:'#app',
+      data: {
+        num: 1
+      },
+      methods: {
+        add: function() {
+          this.num++;
+        }
+      },
+      updated: function(){
+        console.log('我是原生的updated');
+      },
+      mixins: [addConsole]
+    });
+  </script>
+</body>
+</html>

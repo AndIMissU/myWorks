@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>第三季： 构造器里的选项</title>
+  <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+  <h1>propsDate Option</h1>
+  <hr>
+  <p>propsData 不是和属性有关，他用在全局扩展时进行传递数据。</p>
+  <p>propsData在实际开发中我们使用的并不多，我们在后边会学到Vuex的应用，他的作用就是在单页应用中保持状态和数据的。</p>
+  <br>
+  <p>我们用propsData三步解决传值：</p>
+  <p>1、在全局扩展里加入props进行接收。propsData:{a:1}</p>
+  <p>2、传递时用propsData进行传递。props:[‘a’]</p>
+  <p>3、用插值的形式写入模板。{{ a }}</p>
+  <br>
+  <header></header>
+
+  <script>
+    var header_a = Vue.extend({
+      template: `<p style="color:red">{{message}} == {{a}}</p>`,
+      data() {
+        return {
+          message: "Hello I'm header"
+        }
+      },
+      props: ['a']
+    });
+    // 利用下面这个传入props a 这就是propsData 选项
+    new header_a({propsData:{a:2}}).$mount('header');
+  </script>
+</body>
+</html>

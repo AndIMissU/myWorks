@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script type="text/javascript" src="../assets/js/vue.js"></script>
+  <title>第三季： 构造器里的选项</title>
+  
+</head>
+<body>
+  <h1>extends Option</h1>
+  <hr>
+  <p>通过外部增加对象的形式，对构造器进行扩展 </p>
+  <p>extends扩展和mixins混入很像，当扩展或者混入里面的方法和原生的方法重名了，Vue只执行原生的不执行扩展的或混入的</p>
+  <p>extends和mixins的区别：混入在构造器里面是数组的形式声明的，可以很多混入，但是扩展有且只有一个</p>
+  <hr>
+  <div id="app">
+    <p>${ num }</p>
+    <p><button @click="add">add</button></p>
+  </div>
+  <script>
+    // 局部的混入extends
+    var extendsObj = {
+      updated: function() {
+        console.log('我是扩展的Updated');
+      },
+      methods: {
+        add: function() {
+          console.log('我是扩展的方法');
+          this.num++;
+        }
+      }
+    }
+    // 全局的混入mixins
+    
+    var app = new Vue({
+      el:'#app',
+      data: {
+        num: 1
+      },
+      methods: {
+        add: function() {
+          console.log('我是原生的方法');
+          this.num++;
+        }
+      },
+      updated: function(){
+        console.log('我是原生的updated');
+      },
+      extends: extendsObj,
+      delimiters:['${', '}']
+    });
+  </script>
+</body>
+</html>

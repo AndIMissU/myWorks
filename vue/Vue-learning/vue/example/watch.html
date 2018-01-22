@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script type="text/javascript" src="../assets/js/vue.js"></script>
+  <title>第三季： 构造器里的选项</title>
+  
+</head>
+<body>
+  <h1>watch Option</h1>
+  <hr>
+  <div id="app">
+    <p>今日温度： {{wendu}} 度</p>
+    <p>穿衣建议： {{chuanyi}}</p>
+    <p><button @click="up">升高温度</button> <button @click="down">降低温度</button></p>
+  </div>
+
+  <script>
+    var chuanyiarray = ['T恤短袖', '夹克长裙', '棉衣羽绒服'];
+    var app = new Vue({
+      el:'#app',
+      data: {
+        wendu: 14,
+        chuanyi: "夹克长裙" 
+      },
+      methods: {
+        up: function() {
+          this.wendu += 5;
+        },
+        down: function() {
+          this.wendu -= 5;
+        }
+      },
+      // 这是在构造器里面写watch  实际开发中会这么使用  
+      watch: {
+        wendu: function(newVal, oldVal) {
+          if(newVal >= 26){
+            this.chuanyi = chuanyiarray[0];
+          } else if(newVal < 26 && newVal > 0) {
+            this.chuanyi = chuanyiarray[1];
+          } else {
+            this.chuanyi = chuanyiarray[2];
+          }
+        }
+      }
+    });
+
+    // 在构造器外边实例编写对属性的监控：
+    app.$watch('wendu', function(newVal, oldVal) {
+      if(newVal >= 26){
+        this.chuanyi = chuanyiarray[0];
+      } else if(newVal < 26 && newVal > 0) {
+        this.chuanyi = chuanyiarray[1];
+      } else {
+        this.chuanyi = chuanyiarray[2];
+      }
+    })
+  </script>
+</body>
+</html>
