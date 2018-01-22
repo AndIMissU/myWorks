@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>第四季： Vue实例和内部组件</title>
+  <script type="text/javascript" src="../assets/js/vue.js"></script>
+  <script type="text/javascript" src="../assets/js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+  <h1>example-3 实例事件</h1>
+  <hr>
+  <div id="app">
+    {{num}}
+    <p><button @click="add">add</button></p>
+  </div>
+  <p>on 事件（一直都可以使用）：<button onclick="reduce()">reduce</button></p>
+  <p>once 事件（只使用一次）：<button onclick="reduceOnce()">reduceOnce</button></p>
+  <p>off 关闭事件：<button onclick="off()">off</button></p>
+
+  <script type="text/javascript">
+    var app = new Vue({
+      el:'#app',
+      data: {
+        num: 1
+      },
+      methods: {
+        add: function() {
+          this.num++;
+        }
+      }
+    });
+
+    // 在构造器外部调用构造器内部事件
+    app.$on("reduce", function() {
+      console.log('执行了reduce方法');
+      this.num--;
+    });
+    // 需要声明函数 并使用emit事件
+    function reduce() {
+      app.$emit('reduce');
+    }
+    // $once执行一次的事件
+    app.$once('reduceOnce',function(){
+      console.log('只执行一次的方法');
+      this.num--;
+    });
+    function reduceOnce() {
+      app.$emit('reduceOnce');
+    }
+
+    //关闭事件
+    function off(){
+      app.$off('reduce');
+    }
+  </script>
+</body>
+</html>

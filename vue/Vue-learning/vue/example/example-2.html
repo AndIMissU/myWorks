@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>第四季： Vue实例和内部组件</title>
+  <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+  <h1>example-2 实例方法</h1>
+  <hr>
+  <div id="app">
+    {{message}}
+  </div>
+  <p>用$destroy()进行卸载。</p>
+  <p><button onclick="destroy()">卸载</button></p>
+  <p>用$forceUpdate()进行更新</p>
+  <p><button onclick="reload()">刷新</button></p>
+  <p>用$nextTick() 数据修改方法</p>
+  <p><button onclick="tick()">更新</button></p>
+
+  <script type="text/javascript">
+    var haha = Vue.extend({
+      template: `<p>{{message}}</p>`,
+      data() {
+        return {
+          message: 'Hello I am haha!'
+        }
+      },
+      mounted:function() {
+        console.log('mounted 被创建！');
+      },
+      destroyed: function() {
+        console.log('实例被销毁');
+      },
+      updated: function() {
+        console.log('实例更新');
+      }
+    });
+    // 挂载的方法
+    // 销毁的方法
+    var ha = new haha().$mount('#app');
+    function destroy() {
+      ha.$destroy();
+    }
+    // 刷新的方法
+    function reload() {
+      ha.$forceUpdate();
+    }
+    // 更新数据的方法
+    function tick() {
+      ha.message = 'No kisses';
+      ha.$nextTick(function(){
+        console.log('先执行forceupdate更新，更新完之后我被调用了 我其实是一个回调函数');
+      });
+
+    }
+  </script>
+</body>
+</html>

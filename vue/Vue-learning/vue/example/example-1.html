@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>第四季： Vue实例和内部组件</title>
+  <script type="text/javascript" src="../assets/js/vue.js"></script>
+  <script type="text/javascript" src="../assets/js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+  <h1>example-1 实例方法</h1>
+  <hr>
+  <div id="app">{{message}}</div>
+
+  <script type="text/javascript">
+    var app = new Vue({
+      el:'#app',
+      data: {
+        message: 'Hello Vue!'
+      },
+      // 只有在mounted和Jquery里面才能用Jquery 因为其他地方都找不到DOM
+      mounted: function() {
+        $('#app').html('我是Jquery');
+      },
+      methods: {
+        add: function() {
+          console.log('调用了构造器内部的add方法');
+        }
+      }
+    });
+    // 在外部调用构造器内部方法
+    app.add();
+  </script>
+</body>
+</html>

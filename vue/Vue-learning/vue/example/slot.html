@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>第四季： Vue实例和内部组件</title>
+  <script type="text/javascript" src="../assets/js/vue.js"></script>
+  <script type="text/javascript" src="../assets/js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+  <h1>slot 自定义组件slot</h1>
+  <hr>
+  <p>slot的使用需要两步:</p>
+  <p>1、在HTML的组件中用slot属性传递值</p>
+  <p>2、在组件模板中用<slot></slot>标签接收值。</p>
+  <hr>
+  <div id="app">
+    <haha>
+      <span slot="Url">{{haha.Url}}</span>
+      <span slot="netName">{{haha.netName}}</span>
+      <span slot="skill">{{haha.skill}}</span>
+    </haha>
+  </div>
+  <template id="tp">
+    <div>
+      <p>博客地址：<slot name="Url"></slot></p>
+      <p>网名：<slot name="netName"></slot></p>
+      <p>所掌握的技术：<slot name="skill"></slot></p>
+    </div>  
+  </template>
+
+  <script type="text/javascript">
+    var haha = {
+      template: '#tp'
+    }
+
+    var app = new Vue({
+      el:'#app',
+      data: {
+        haha:{
+          Url: 'https://andimissu.github.io',
+          netName:'IMissU',
+          skill: 'eat foods'
+        }
+      },
+      components:{
+        "haha": haha
+      }
+    });
+  </script>
+</body>
+</html>
