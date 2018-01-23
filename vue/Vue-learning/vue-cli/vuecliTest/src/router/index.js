@@ -5,6 +5,7 @@ import Hi from '@/components/hi'
 import Hi1 from '@/components/hi1'
 import Hi2 from '@/components/hi2'
 import Params from '@/components/Params'
+import Error from '@/components/error'
 
 Vue.use(Router)
 
@@ -57,6 +58,11 @@ export default new Router({
       path: '/hi3',
       component: Hi1,
       alias:'/hahaha'
+    },
+    // 404 页面编写
+    {
+      path: '*',
+      component: Error
     }
   ]
 })

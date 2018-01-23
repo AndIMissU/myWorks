@@ -40,7 +40,15 @@
       <router-link to="/hahaha">hahaha</router-link>
       <router-view></router-view>
     </div>
-    
+    <div>
+      <hr>
+      <h2>6. 路由过渡动画：</h2>
+      <router-link to="/">Home</router-link>
+      <router-link to="/hahaha">hahaha</router-link>
+      <transition name="fade" mode="out-in">
+        <router-view></router-view>
+      </transition>
+    </div>
   </div>
 </template>
 
@@ -58,5 +66,18 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.fade-enter{
+  opacity: 0;
+}
+.fade-enter-active {
+  transition: opacity .5s;
+}
+.fade-leave {
+  opacity: 1;
+}
+.fade-leave-active {
+  opacity: 0;
+  transition: opacity 0.5s;
 }
 </style>
