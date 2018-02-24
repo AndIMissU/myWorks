@@ -1,0 +1,12 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#FD6D93",
+    "navigationBarTitleText": "萌宝会严选",
+    "navigationBarTextStyle":"white"
+  }
+}
