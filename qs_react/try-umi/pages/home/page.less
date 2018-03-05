@@ -1,0 +1,40 @@
+.home {
+  background: #fff;
+}
+.header {
+  background-image: linear-gradient(90deg, #0af, #0085ff);
+  color: #fff;
+  padding: .44rem .32rem 0;
+  line-height: 1.2;
+  font-size: .36rem;
+  font-weight: 700;
+  height: .46rem;
+}
+.search {
+  padding: .16rem .32rem;
+  background-image: linear-gradient(90deg, #0af, #0085ff);
+
+   :global {
+    .am-search-input {
+      border-radius: 0;
+      height: .76rem;
+
+      input {
+        height: .76rem;
+      }
+
+      .am-search-clear {
+        top: .1rem;
+      }
+    }
+
+    .am-search-synthetic-ph {
+      line-height: .76rem;
+    }
+
+    .am-search-cancel {
+      width: 0;
+      padding: 0;
+    }
+  }
+}
