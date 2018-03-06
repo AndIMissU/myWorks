@@ -1,0 +1,9 @@
+header {
+  background: #aaa;
+  font-size: 20px;
+}
+footer {
+  border-top: 1px solid #ccc;
+  padding-top: 8px;
+  color: #aaa;
+}
