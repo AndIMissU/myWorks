@@ -1,0 +1,16 @@
+{
+  "name": "learn-express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "xuling <784738601@qq.com>",
+  "license": "ISC",
+  "dependencies": {
+    "cross-env": "^5.1.3",
+    "express": "^4.16.2"
+  }
+}
