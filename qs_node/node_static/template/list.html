@@ -1,0 +1,21 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{title}}</title>
+  </head>
+  <body>
+    <h1>hpoe-server 静态文件服务器</h1>
+    <ul>
+      <!-- # 开始逻辑 -->
+      {{#each files}}
+      <li>
+        <a href="{{url}}">{{name}}</a>
+      </li>
+      {{/each}}
+      <!-- / 结束逻辑 -->
+    </ul>
+  </body>
+  </html>
