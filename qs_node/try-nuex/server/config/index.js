@@ -2,11 +2,11 @@
 export default {
   user: {
     role: 'superAdmin',
-    username: 'q',
+    username: 'Ashley',
     password: 'q',
-    email: 'qq22337383@gmail.com',
+    email: '784738601@qq.com',
     nickname: 'VueBlog',
-    motto: 'Never too old to learn',
+    motto: 'Tomorrow is another day',
     avatar: 'avatar.png'
   },
   mongodb: {
