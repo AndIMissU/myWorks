@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- 引入ECharts -->
+  <script src="../scripts/echarts.js"></script>
+  <title>bar</title>
+</head>
+<body>
+  <!-- 为EChats 准备一个具备宽高的DOM -->
+  <div id="main" style="width: 900px;height: 600px;"></div>
+  <script>
+    // 基于准备好的DOM 初始化ECharts实例
+    var myChart = echarts.init(document.getElementById('main'));
+
+    // 指定图表的配置项和数据
+    var option = {
+      // 标题
+      title: {
+        text: "ECharts 入门实例",
+        subtext: "学习",
+        left: 0,
+        borderColor:'red',
+        borderWidth:5,
+        textStyle: {
+          color: 'red'
+        }
+      },
+      // 工具栏
+      toolbox: {
+        show: true,
+        feature: {
+          // 数据可视化
+          dataView: {
+            show: true
+          },
+          // 还原
+          restore: {
+            show: true
+          },
+          // 区域缩放
+          dataZoom: {
+            show: true
+          },
+          // 保存图片
+          saveAsImage: {
+            show: true
+          },
+          magicType: {
+            type: ['bar', 'line']
+          }
+        }
+      },
+      tooltip: {
+        trigger: 'axis'
+      },
+      // 图例
+      legend: {
+        data: ['销量','产量']
+      },
+      // x 轴
+      xAxis: {
+        data: ['衬衫','羊毛','衫雪纺','衫裤子','高跟鞋','袜子']
+      },
+      yAxis: {},
+      // 数据 
+      series: [
+        {
+          name: '销量',
+          type: 'bar',
+          data: [5,20,36,10,3,20],
+          markPoint: {
+            data: [
+              {type: 'max', name: '最大值'},
+              {type: 'min', name: '最小值'}
+            ]
+          },
+          markLine: {
+            data: [
+              {type: 'average', name: '平均值'}
+            ]
+          }
+        },
+        {
+          name: '产量',
+          type: 'line',
+          data:[7,30,50,11,40,80],
+          markPoint: {
+            data: [
+              {type: 'max', name: '最大值'},
+              {type: 'min', name: '最小值',symbol: 'circle'}
+            ]
+          },
+          markLine: {
+            data: [
+              {type: 'average', name: '平均值'}
+            ]
+          }
+        }
+      ]
+    };
+    // 使用刚刚设置的配置项和数据来显示图表
+    myChart.setOption(option);
+  </script>
+</body>
+</html>
